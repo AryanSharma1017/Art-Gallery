@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hardi\\OneDrive\\Desktop\\art_gallery\\Art-Gallery\\Backend\\Backend.csproj": {}
+    "C:\\SIT 331 (Backend Services)\\Art-Gallery\\Backend\\Backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hardi\\OneDrive\\Desktop\\art_gallery\\Art-Gallery\\Backend\\Backend.csproj": {
+    "C:\\SIT 331 (Backend Services)\\Art-Gallery\\Backend\\Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hardi\\OneDrive\\Desktop\\art_gallery\\Art-Gallery\\Backend\\Backend.csproj",
+        "projectUniqueName": "C:\\SIT 331 (Backend Services)\\Art-Gallery\\Backend\\Backend.csproj",
         "projectName": "Backend",
-        "projectPath": "C:\\Users\\hardi\\OneDrive\\Desktop\\art_gallery\\Art-Gallery\\Backend\\Backend.csproj",
-        "packagesPath": "C:\\Users\\hardi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hardi\\OneDrive\\Desktop\\art_gallery\\Art-Gallery\\Backend\\obj\\",
+        "projectPath": "C:\\SIT 331 (Backend Services)\\Art-Gallery\\Backend\\Backend.csproj",
+        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+        "outputPath": "C:\\SIT 331 (Backend Services)\\Art-Gallery\\Backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\hardi\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -46,6 +46,10 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.2, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.25.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
