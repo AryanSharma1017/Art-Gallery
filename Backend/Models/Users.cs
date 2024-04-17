@@ -2,12 +2,11 @@ using System;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace art_gallery.Models;
 public class User
 {
     [BsonId]
     [BsonRepresentation(BsonType.ObjectId)] // MongoDB-specific attribute for the ID
-    public int Id { get; set; }
+    public string Id { get; set; }
 
     [BsonElement("firstName")]
     public string FirstName { get; set; }
@@ -37,7 +36,7 @@ public class User
 
     public User () {}
 
-    public User (int id, string firstname, string lastname, string email, string passwordhash, string role, DateTime createddate, DateTime modifieddate, string? description = null) 
+    public User (string id, string firstname, string lastname, string email, string passwordhash, string role, DateTime createddate, DateTime modifieddate, string? description = null) 
     {
         Id = id;
         FirstName = firstname;
