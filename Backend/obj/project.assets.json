@@ -1230,19 +1230,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\hardi\\.nuget\\packages\\": {}
+    "C:\\Users\\HP\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hardi\\OneDrive\\Desktop\\art_gallery\\Art-Gallery\\Backend\\Backend.csproj",
+      "projectUniqueName": "C:\\SIT 331 (Backend Services)\\Art-Gallery\\Backend\\Backend.csproj",
       "projectName": "Backend",
-      "projectPath": "C:\\Users\\hardi\\OneDrive\\Desktop\\art_gallery\\Art-Gallery\\Backend\\Backend.csproj",
-      "packagesPath": "C:\\Users\\hardi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hardi\\OneDrive\\Desktop\\art_gallery\\Art-Gallery\\Backend\\obj\\",
+      "projectPath": "C:\\SIT 331 (Backend Services)\\Art-Gallery\\Backend\\Backend.csproj",
+      "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+      "outputPath": "C:\\SIT 331 (Backend Services)\\Art-Gallery\\Backend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\hardi\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -1306,13 +1306,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\hardi\\OneDrive\\Desktop\\art_gallery\\Art-Gallery\\Backend\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
