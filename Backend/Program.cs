@@ -1,14 +1,15 @@
 using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
+using art_gallery.Models;
+using art_gallery.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-builder.Services.AddSingleton<IMongoClient>(ServiceProvider =>
-{
-    return new MongoClient(builder.Configuration["ConnectionStrings:MongoDb"]);
-});
+builder.Services.Configure<MongoDBSettings>(builder.Configuration.GetSection("MongoDB"));
+
+builder.Services.AddSingleton<MongoDBService>();
 
 var app = builder.Build();
 
