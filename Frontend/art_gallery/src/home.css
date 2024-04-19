@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.HomePage h1 {
+    font-size: 60px;
+    color: white; 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 50px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.HomePage h1 span {
+    color:  rgb(236, 131, 10); 
+}
+body
+{
+    background-color: black;
+}
+
+.buttons button {
+    background-color: black;
+    color: orangered;
+    padding: 10px 40px;
+    margin: 90px;
+    margin-top: 20px;
+    border-radius: 60px;
+    border-color: orange;
+    transition: padding 0.3s ease; /* Add transition for padding */
+}
+
+.buttons button:hover {
+    background-color: black;
+    color: whitesmoke;
+    padding: 20px 70px;
+    margin: 90px;
+    margin-top: 20px;
+    border-radius: 60px;
+    border-color: orange;
+}
+
+.para p
+{
+    overflow: hidden;
+    color: white;
+    font-family: "Poppins";
+    padding: 50px 370px;
+    font-size: 20px;
+}
+
+
+.HomePage img
+{
+    width: 100px;
+    height: 100px;
+}
+
+

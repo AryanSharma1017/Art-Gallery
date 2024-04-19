@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+
+.SearchBar{
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+    flex-direction: row;
+    background-color: rgb(28, 27, 27);
+    color: whitesmoke;
+    /* padding: -50px; */
+    padding-left: 100px;
+}
+
+.SearchBar h2
+{
+    background: linear-gradient(to right, rgb(196, 132, 59), rgb(255, 2, 2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    font-size: 30px;  
+    font-family:serif;
+}
+
+.SearchBar h3
+{
+    color: white;
+}
+
+.options
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    /* margin-right: 50px */
+    margin-left: 200px;
+    background-color: rgb(28, 27, 27);
+    color: whitesmoke;
+}
+
+.options h3
+{
+    padding: 10px 30px;
+}
+
+.user-list p
+{
+    color: whitesmoke;
+}
