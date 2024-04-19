@@ -8,11 +8,11 @@ namespace art_gallery.Models;
 public class User
 {
     [BsonId]
-    [BsonRepresentation(BsonType.ObjectId)]
+    // [BsonRepresentation(BsonType.ObjectId)]
     //this allows work on ID as string and save it as ObjectId in mongoDB 
     //and if it doesn't exists it will create a new ObjectId automatically
     //so that we dont have to make a unique string ID
-    public string? Id { get; set; }
+    public int Id { get; set; }
 
     [BsonElement("first_name")]
     public string FirstName { get; set; }
@@ -42,9 +42,12 @@ public class User
     //this can be used to change the json name of the property
     public DateTime ModifiedDate { get; set; }
 
-    public User () {}
+    public User () 
+    {
+        
+    }
 
-    public User (string id, string firstname, string lastname, string email, string passwordhash, string role, DateTime createddate, DateTime modifieddate, string? description = null) 
+    public User (int id, string firstname, string lastname, string email, string passwordhash, string role, DateTime createddate, DateTime modifieddate, string? description = null) 
     {
         Id = id;
         FirstName = firstname;
