@@ -43,7 +43,155 @@
     padding: 10px 30px;
 }
 
+.options a {
+    text-decoration: none; 
+    color: rgb(233, 232, 232); 
+    transition: all 0.3s ease; 
+    font-size: 20px;
+}
+
+.options a:hover {
+    color: orangered;
+}
+
 .user-list p
 {
+    color: black;
+}
+
+.user-list 
+{
+    display: flex;
+    /* color: whitesmoke; */
+    /* padding: 10px; */
+    border: 2px;
+    /* border-color: black; */
+    color: black;
+    font-family:cursive;
+    
+}
+
+.ArtGallery h2
+{
     color: whitesmoke;
+    font-size: 30px;
+    padding: 15px;
+
+}
+
+.user-card
+{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin: 20px;
+    border-color: whitesmoke;
+    border: 2px;
+    background-color: whitesmoke; 
+   
+    border-radius: 23px;
+    transition: background 0.3s;
+}
+
+
+.Post h2
+{
+    background: linear-gradient(to left, rgb(196, 132, 59), rgb(255, 2, 2));
+    font-size: 40px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.Poptions label
+{
+    color: whitesmoke;
+    padding: 10px;
+    font-size: 25px;
+}
+
+.Poptions select
+{
+    padding: 10px 30px;
+    border-radius: 20px;
+}
+
+.Poptions option
+{
+    border-radius: 10px;
+}
+
+.Poptions
+{
+    padding: 10px;
+    padding-bottom: 70px;
+}
+
+.PostForm
+{
+    color: white;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.form-group {
+    display: flex;
+    flex-direction: row;
+    align-items:start;
+    justify-content: center;
+}
+
+.Post form
+{
+    display: flex;
+    align-items: start;
+    border: 2px solid white;
+    border-radius: 12px;
+    padding: 30px 60px;
+}
+
+.Post form button
+{
+    margin-left: 92px;
+    margin-top: 50px;
+}
+
+.Div1 
+{
+    display: flex;
+    justify-content: center;
+}
+
+.Div2 button
+{
+    display: flex;
+    align-items: center;
+}
+
+.form-group
+{
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.form-group input
+{
+    padding-left: 10px;
+    margin-left: 20px;
+    width: 200px;
+    height: 20px;
+    border-radius: 5px;
+    color: black;
+}
+
+.form-group textarea
+{
+    padding-left: 10px;
+    margin-left: 20px;
+    width: 200px;
+    height: 20px;
 }

@@ -25,9 +25,10 @@ const ArtGallery = () => {
         {users.map(user => (
           <div key={user.id} className='user-card'>
             <p>ID: {user.id}</p>
-            <p>Name: {user.firstName} {user.lastName}</p>
+            <p>Full Name: {user.firstName} {user.lastName}</p>
             <p>Email: {user.email}</p>
             <p>Role: {user.role}</p>
+            <p>Description: {user.description}</p>
           </div>
         ))}
       </div>
