@@ -5,10 +5,10 @@ using MongoDB.Bson;
 
 namespace art_gallery.Services;
 
-public class MongoDBService {
+public class UserService {
     private readonly IMongoCollection<User> _userCollection;
 
-    public MongoDBService(IOptions<MongoDBSettings> _mongoDBSettings)
+    public UserService(IOptions<MongoDBSettings> _mongoDBSettings)
     {
         MongoClient client = new MongoClient(_mongoDBSettings.Value.ConnectionURI);
         IMongoDatabase database = client.GetDatabase(_mongoDBSettings.Value.DatabaseName);
@@ -61,7 +61,7 @@ public class MongoDBService {
         await _userCollection.ReplaceOneAsync(filter, ExistingUser);
     }
 
-    public async Task DeleteAsync(int id) {
+    public async Task DeleteUser(int id) {
         FilterDefinition<User> filter = Builders<User>.Filter.Eq(user => user.Id, id);
         await _userCollection.DeleteOneAsync(filter);
         return;
