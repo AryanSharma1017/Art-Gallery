@@ -59,7 +59,7 @@ public class ArtistService {
         ExistingArtist.Email = Artisttoupdate.Email ?? ExistingArtist.Email;
         ExistingArtist.Type = Artisttoupdate.Type ?? ExistingArtist.Type;
         ExistingArtist.About = Artisttoupdate.About ?? ExistingArtist.About;
-        ExistingArtist.PhoneNumber = Artisttoupdate.PhoneNumber != 0 ? Artisttoupdate.PhoneNumber : ExistingArtist.PhoneNumber;
+        ExistingArtist.PhoneNumber = Artisttoupdate.PhoneNumber ?? ExistingArtist.PhoneNumber;
         ExistingArtist.Age = Artisttoupdate.Age != 0 ? Artisttoupdate.Age : ExistingArtist.Age;
 
         ExistingArtist.ModifiedDate = DateTime.UtcNow;

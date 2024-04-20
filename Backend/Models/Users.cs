@@ -8,10 +8,7 @@ namespace art_gallery.Models;
 public class User
 {
     [BsonId]
-    // [BsonRepresentation(BsonType.ObjectId)]
-    //this allows work on ID as string and save it as ObjectId in mongoDB 
-    //and if it doesn't exists it will create a new ObjectId automatically
-    //so that we dont have to make a unique string ID
+    [JsonPropertyName("_id")]
     public int Id { get; set; }
 
     [BsonElement("first_name")]
