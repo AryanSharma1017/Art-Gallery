@@ -5,8 +5,7 @@ namespace art_gallery.Models;
 public class ArtGallery
 {
     [BsonId] // MongoDB document primary key
-    [BsonRepresentation(BsonType.ObjectId)] // Id represented as ObjectId but handled in C# as string
-    public string Id { get; set; }
+    public int Id { get; set; }
 
     [BsonElement("name")]
     public string Name { get; set; }
@@ -18,18 +17,19 @@ public class ArtGallery
     public int NumberOfArtifacts { get; set; }
 
     [BsonElement("ongoingExhibition")]
-    public bool OngoingExhibition { get; set; }
+    public bool? OngoingExhibition { get; set; }
 
     [BsonElement("exhibitionId")]
-    [BsonRepresentation(BsonType.ObjectId)] // Linking this to another document type, allowed to be null
-    public string? ExhibitionId { get; set; }
+     // Linking this to another document type, allowed to be null
+    public int? ExhibitionId { get; set; }
 
     // Default constructor
     public ArtGallery() { }
 
     // Constructor with parameters
-    public ArtGallery(string name, string address, int numberOfArtifacts, bool ongoingExhibition, string? exhibitionId = null)
+    public ArtGallery(int id,string name, string address, int numberOfArtifacts, bool? ongoingExhibition = null, int? exhibitionId = null)
     {
+        Id = id;
         Name = name;
         Address = address;
         NumberOfArtifacts = numberOfArtifacts;

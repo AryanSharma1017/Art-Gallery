@@ -17,7 +17,18 @@ public class ExhibitionController: ControllerBase {
 
     [HttpGet]
     public async Task<List<Exhibition>> Get() {
-        return await _exhibitionOptions.GetExhibitions();
+        return await _exhibitionOptions.GetAllExhibitions();
+    }
+
+    [HttpGet("{id}")]
+    public async Task<ActionResult<User>> Get(int id)
+    {
+        var exhibition = await _exhibitionOptions.GetExhibition(id);
+        if (exhibition == null)
+        {
+            return NotFound();
+        }
+        return Ok(exhibition);
     }
 
     [HttpPost]
@@ -29,13 +40,15 @@ public class ExhibitionController: ControllerBase {
     [HttpPut("{id}")]
     public async Task<IActionResult> Update(int id, [FromBody] Exhibition updatedExhibition) 
     {
-        await _exhibitionOptions.UpdateExhibition(id,updatedExhibition);
-        return NoContent();
+        if(await _exhibitionOptions.UpdateExhibition(id,updatedExhibition))
+            return NoContent();
+        return NotFound();
     }
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id) {
-        await _exhibitionOptions.DeleteExhibition(id);
-        return NoContent();
+        if(await _exhibitionOptions.DeleteExhibition(id))
+            return NoContent();
+        return NotFound();
     }
 }

@@ -6,8 +6,7 @@ using System;
 namespace art_gallery.Models;
 public class Exhibition
 {
-    [BsonId] // MongoDB document primary key
-    [BsonRepresentation(BsonType.ObjectId)]
+    [BsonId]
     public int Id { get; set; }
 
     [BsonElement("name")]

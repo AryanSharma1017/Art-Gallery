@@ -15,8 +15,13 @@ public class UserService {
         _userCollection = database.GetCollection<User>("users");
     }
 
-    public async Task<List<User>> GetUsers() {
+    public async Task<List<User>> GetAllUsers() {
         return await _userCollection.Find(new BsonDocument()).ToListAsync();
+    }
+
+    public async Task<User> GetUser(int id)
+    {
+        return await _userCollection.Find(u => u.Id == id).FirstOrDefaultAsync();
     }
 
     private int GetNextUserId()
@@ -32,39 +37,43 @@ public class UserService {
         }
     }
 
-    public async Task CreateUser(User UserToAdd)
+    public async Task CreateUser(User user)
     {
-        UserToAdd.Id = GetNextUserId();
-        await _userCollection.InsertOneAsync(UserToAdd);
+        user.Id = GetNextUserId();
+        user.CreatedDate = DateTime.Now;
+        user.ModifiedDate = DateTime.Now;
+        await _userCollection.InsertOneAsync(user);
         return;
     }
 
-    public async Task UpdateUser(int id, User Usertoupdate)
+    public async Task<bool> UpdateUser(int id, User user)
     {
         var ExistingUser = await _userCollection.Find(u => u.Id == id).FirstOrDefaultAsync();
 
         if (ExistingUser == null)
         {
-            return;
+            return false;
         }
 
-        ExistingUser.FirstName = Usertoupdate.FirstName ?? ExistingUser.FirstName;
-        ExistingUser.LastName = Usertoupdate.LastName ?? ExistingUser.LastName;
-        ExistingUser.Email = Usertoupdate.Email ?? ExistingUser.Email;
-        ExistingUser.PasswordHash = Usertoupdate.PasswordHash ?? ExistingUser.PasswordHash;
-        ExistingUser.Role = Usertoupdate.Role ?? ExistingUser.Role;
-        ExistingUser.Description = Usertoupdate.Description ?? ExistingUser.Description;
+        ExistingUser.FirstName = user.FirstName ?? ExistingUser.FirstName;
+        ExistingUser.LastName = user.LastName ?? ExistingUser.LastName;
+        ExistingUser.Email = user.Email ?? ExistingUser.Email;
+        ExistingUser.PasswordHash = user.PasswordHash ?? ExistingUser.PasswordHash;
+        ExistingUser.Role = user.Role ?? ExistingUser.Role;
+        ExistingUser.Description = user.Description ?? ExistingUser.Description;
 
         ExistingUser.ModifiedDate = DateTime.UtcNow;
 
         var filter = Builders<User>.Filter.Eq(u => u.Id, id);
-        await _userCollection.ReplaceOneAsync(filter, ExistingUser);
+        var result = await _userCollection.ReplaceOneAsync(filter, ExistingUser);
+        // var result = await _userCollection.ReplaceOneAsync(u => u.Id == id, user);
+        return result.IsAcknowledged && result.ModifiedCount > 0;
     }
 
-    public async Task DeleteUser(int id) {
+    public async Task<bool> DeleteUser(int id) {
         FilterDefinition<User> filter = Builders<User>.Filter.Eq(user => user.Id, id);
-        await _userCollection.DeleteOneAsync(filter);
-        return;
+        var result = await _userCollection.DeleteOneAsync(filter);
+        return result.IsAcknowledged && result.DeletedCount > 0;
     }
 }
 

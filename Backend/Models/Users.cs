@@ -15,30 +15,37 @@ public class User
     public int Id { get; set; }
 
     [BsonElement("first_name")]
+    [JsonPropertyName("first_name")]
     public string FirstName { get; set; }
 
     [BsonElement("last_name")]
+    [JsonPropertyName("last_name")]
     public string LastName { get; set; }
 
     [BsonElement("email")]
+    [JsonPropertyName("email")]
     public string Email { get; set; }
 
     [BsonElement("password_hash")]
+    [JsonPropertyName("password_hash")]
     public string PasswordHash { get; set; }
 
     [BsonElement("role")]
+    [JsonPropertyName("role")]
     public string Role { get; set; }
 
     [BsonElement("description")]
+    [JsonPropertyName("description")]
     public string? Description { get; set; }
 
     [BsonElement("created_date")]
     [BsonDateTimeOptions(Kind = DateTimeKind.Utc)]
+    [JsonPropertyName("created_date")]
     public DateTime CreatedDate { get; set; }
 
     [BsonElement("modified_date")]
     [BsonDateTimeOptions(Kind = DateTimeKind.Utc)]
-    //[JsonPropertyName("modifieddate")]
+    [JsonPropertyName("modified_date")]
     //this can be used to change the json name of the property
     public DateTime ModifiedDate { get; set; }
 
