@@ -7,10 +7,7 @@ public class ArtTypes
     public string? Origin { get; set; }
     public DateTime YearOfOrigin { get; set; }    
 
-    public ArtTypes()
-    {
-
-    }
+    public ArtTypes(){}
 
     public ArtTypes(int id, string name, DateTime yearoforigin, string? origin = null)
     {
