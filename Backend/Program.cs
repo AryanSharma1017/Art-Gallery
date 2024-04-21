@@ -10,8 +10,8 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowAnyOrigin", builder =>
     {
         builder.AllowAnyOrigin()
-               .AllowAnyMethod()
-               .AllowAnyHeader();
+                .AllowAnyMethod()
+                .AllowAnyHeader();
     });
 });
 
@@ -22,6 +22,7 @@ builder.Services.Configure<MongoDBSettings>(builder.Configuration.GetSection("Mo
 builder.Services.AddSingleton<UserService>();
 builder.Services.AddSingleton<ArtistService>();
 builder.Services.AddSingleton<ExhibitionService>();
+builder.Services.AddSingleton<ArtifactService>();
 
 var app = builder.Build();
 

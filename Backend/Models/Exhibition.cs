@@ -1,34 +1,40 @@
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using System;
+using System.Text.Json.Serialization;
 
 
 namespace art_gallery.Models;
 public class Exhibition
 {
-    [BsonId] // MongoDB document primary key
-    [BsonRepresentation(BsonType.ObjectId)]
+    [BsonId]
+    [JsonPropertyName("_id")]
     public int Id { get; set; }
 
     [BsonElement("name")]
+    [JsonPropertyName("name")]
     public string Name { get; set; }
 
     [BsonElement("description")]
+    [JsonPropertyName("description")]
     public string? Description { get; set; }
 
     [BsonElement("type")]
+    [JsonPropertyName("type")]
     public string Type { get; set; }
 
-    [BsonDateTimeOptions(Kind = DateTimeKind.Utc)] // Ensures the date is handled in UTC
-    [BsonElement("startDate")]
+    [BsonDateTimeOptions(Kind = DateTimeKind.Utc)]
+    [BsonElement("start_date")]
+    [JsonPropertyName("start_date")]
     public DateTime StartDate { get; set; }
 
     [BsonDateTimeOptions(Kind = DateTimeKind.Utc)]
-    [BsonElement("endDate")]
+    [BsonElement("end_date")]
+    [JsonPropertyName("end_date")]
     public DateTime EndDate { get; set; }
 
-    [BsonRepresentation(BsonType.ObjectId)]
-    [BsonElement("galleryId")]
+    [BsonElement("gallery_id")]
+    [JsonPropertyName("gallery_id")]
     public int GalleryId { get; set; }
 
     // Default constructor

@@ -17,7 +17,18 @@ public class ArtistController: ControllerBase {
 
     [HttpGet]
     public async Task<List<Artist>> Get() {
-        return await _artistOptions.GetArtist();
+        return await _artistOptions.GetAllArtists();
+    }
+
+    [HttpGet("{id}")]
+    public async Task<ActionResult<Artist>> Get(int id)
+    {
+        var artist = await _artistOptions.GetArtist(id);
+        if (artist == null)
+        {
+            return NotFound();
+        }
+        return Ok(artist);
     }
 
     [HttpPost]
@@ -29,13 +40,15 @@ public class ArtistController: ControllerBase {
     [HttpPut("{id}")]
     public async Task<IActionResult> Update(int id, [FromBody] Artist ArtistToUpdate) 
     {
-        await _artistOptions.UpdateArtist(id,ArtistToUpdate);
-        return NoContent();
+        if(await _artistOptions.UpdateArtist(id,ArtistToUpdate))
+            return NoContent();
+        return NotFound();
     }
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id) {
-        await _artistOptions.DeleteArtist(id);
-        return NoContent();
+        if(await _artistOptions.DeleteArtist(id))
+            return NoContent();
+        return NotFound();
     }
 }

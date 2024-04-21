@@ -15,14 +15,19 @@ public class ArtistService {
         _artistCollection = database.GetCollection<Artist>("artists");
     }
 
-    public async Task<List<Artist>> GetArtist() 
+    public async Task<List<Artist>> GetAllArtists() 
     {
         return await _artistCollection.Find(new BsonDocument()).ToListAsync();
     }
 
+    public async Task<Artist> GetArtist(int id)
+    {
+        return await _artistCollection.Find(a => a.Id == id).FirstOrDefaultAsync();
+    }
+
     private int GetNextArtistId()
     {
-        var currentID = _artistCollection.Find(u => true).SortByDescending(u => u.Id).Limit(1).FirstOrDefault();
+        var currentID = _artistCollection.Find(a => true).SortByDescending(a => a.Id).Limit(1).FirstOrDefault();
         if (currentID == null)
         {
             return 1;
@@ -40,13 +45,13 @@ public class ArtistService {
         return;
     }
 
-    public async Task UpdateArtist(int id, Artist Artisttoupdate)
+    public async Task<bool> UpdateArtist(int id, Artist Artisttoupdate)
     {
-        var ExistingArtist = await _artistCollection.Find(u => u.Id == id).FirstOrDefaultAsync();
+        var ExistingArtist = await _artistCollection.Find(a => a.Id == id).FirstOrDefaultAsync();
 
         if (ExistingArtist == null)
         {
-            return;
+            return false;
         }
 
         ExistingArtist.FirstName = Artisttoupdate.FirstName ?? ExistingArtist.FirstName;
@@ -54,20 +59,21 @@ public class ArtistService {
         ExistingArtist.Email = Artisttoupdate.Email ?? ExistingArtist.Email;
         ExistingArtist.Type = Artisttoupdate.Type ?? ExistingArtist.Type;
         ExistingArtist.About = Artisttoupdate.About ?? ExistingArtist.About;
-        ExistingArtist.PhoneNumber = Artisttoupdate.PhoneNumber != 0 ? Artisttoupdate.PhoneNumber : ExistingArtist.PhoneNumber;
+        ExistingArtist.PhoneNumber = Artisttoupdate.PhoneNumber ?? ExistingArtist.PhoneNumber;
         ExistingArtist.Age = Artisttoupdate.Age != 0 ? Artisttoupdate.Age : ExistingArtist.Age;
 
         ExistingArtist.ModifiedDate = DateTime.UtcNow;
 
-        var filter = Builders<Artist>.Filter.Eq(u => u.Id, id);
+        var filter = Builders<Artist>.Filter.Eq(a => a.Id, id);
 
-        await _artistCollection.ReplaceOneAsync(filter, ExistingArtist);
+        var result = await _artistCollection.ReplaceOneAsync(filter, ExistingArtist);
+        return result.IsAcknowledged && result.ModifiedCount > 0;
     }
 
-    public async Task DeleteArtist(int id) {
+    public async Task<bool> DeleteArtist(int id) {
         FilterDefinition<Artist> filter = Builders<Artist>.Filter.Eq(user => user.Id, id);
-        await _artistCollection.DeleteOneAsync(filter);
-        return;
+        var result = await _artistCollection.DeleteOneAsync(filter);
+        return result.IsAcknowledged && result.DeletedCount > 0;
     }
 }
 

@@ -15,9 +15,14 @@ public class ExhibitionService{
         _exhibitionCollection = database.GetCollection<Exhibition>("exhibitions");
     }
 
-    public async Task<List<Exhibition>> GetExhibitions()
+    public async Task<List<Exhibition>> GetAllExhibitions()
     {
         return await _exhibitionCollection.Find(new BsonDocument()).ToListAsync();
+    }
+
+    public async Task<Exhibition> GetExhibition(int id)
+    {
+        return await _exhibitionCollection.Find(e => e.Id == id).FirstOrDefaultAsync();
     }
 
     private int GetNextExhibitionId()
@@ -40,13 +45,13 @@ public class ExhibitionService{
         return;
     }
 
-    public async Task UpdateExhibition(int id, Exhibition updatedExhibition)
+    public async Task<bool> UpdateExhibition(int id, Exhibition updatedExhibition)
     {
         var existingExhibition = await _exhibitionCollection.Find(u => u.Id ==id).FirstOrDefaultAsync();
 
         if(existingExhibition == null)
         {
-            return;
+            return false;
         }
 
         existingExhibition.Name = updatedExhibition.Name ?? existingExhibition.Name;
@@ -58,14 +63,15 @@ public class ExhibitionService{
 
         var filter = Builders<Exhibition>.Filter.Eq(u => u.Id, id);
 
-        await _exhibitionCollection.ReplaceOneAsync(filter, existingExhibition);
+        var result = await _exhibitionCollection.ReplaceOneAsync(filter, existingExhibition);
+        return result.IsAcknowledged && result.ModifiedCount > 0;
     }
 
-    public async Task DeleteExhibition(int id)
+    public async Task<bool> DeleteExhibition(int id)
     {
         FilterDefinition<Exhibition> filter = Builders<Exhibition>.Filter.Eq(e => e.Id, id);
-        await _exhibitionCollection.DeleteOneAsync(filter);
-        return;
+        var result = await _exhibitionCollection.DeleteOneAsync(filter);
+        return result.IsAcknowledged && result.DeletedCount > 0;
     }
 }
 
