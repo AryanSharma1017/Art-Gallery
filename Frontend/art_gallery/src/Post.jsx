@@ -95,7 +95,7 @@ const Post = () => {
             <textarea id='description' name='description' value={formData.description} onChange={handleChange}></textarea>
           </div>
           <div className='Div2'>
-            <button type='submit'>Submit</button>
+            <button type='submit'>POST</button>
           </div>
         </form>
         </div>
