@@ -21,6 +21,10 @@
     font-family:serif;
 }
 
+.SearchBar a{
+    text-decoration: none;
+}
+
 .SearchBar h3
 {
     color: white;
@@ -48,6 +52,7 @@
     color: rgb(233, 232, 232); 
     transition: all 0.3s ease; 
     font-size: 20px;
+    padding: 10px;
 }
 
 .options a:hover {
@@ -148,11 +153,12 @@
     border: 2px solid white;
     border-radius: 12px;
     padding: 30px 60px;
+    background: rgba(250, 250, 250, 0.178);
 }
 
 .Post form button
 {
-    margin-left: 92px;
+    margin-left: 69px;
     margin-top: 50px;
 }
 
@@ -166,6 +172,12 @@
 {
     display: flex;
     align-items: center;
+    border-radius: 60px;
+    border-color: orange;
+    background-color: black;
+    color: white;
+    padding: 10px 30px;
+    
 }
 
 .form-group
