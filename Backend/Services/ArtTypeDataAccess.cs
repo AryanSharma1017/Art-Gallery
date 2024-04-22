@@ -23,6 +23,19 @@ public class ArtTypeService {
         return await _artTypeCollection.Find(at => at.Id == id).FirstOrDefaultAsync();
     }
 
+    private int GetNextArtTypeId()
+    {
+        var currentID = _artTypeCollection.Find(u => true).SortByDescending(u => u.Id).Limit(1).FirstOrDefault();
+        if (currentID == null)
+        {
+            return 1;
+        }
+        else
+        {
+            return currentID.Id + 1; 
+        }
+    }
+    
     public async Task CreateArtType(ArtTypes artTypeToAdd)
     {
         await _artTypeCollection.InsertOneAsync(artTypeToAdd);
