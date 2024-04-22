@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import "./searchbar.css"
 
 const ArtGallery = () => {
-  const [users, setUsers] = useState([]);
+  const [Artgalleries, setArtgallery] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5033/api/User')
+    fetch('http://localhost:5033/api/ArtGallery')
       .then(response => {
         if (!response.ok) {
           throw new Error('Failed to fetch data');
@@ -13,22 +13,20 @@ const ArtGallery = () => {
         return response.json();
       })
       .then(data => {
-        setUsers(data);
+        setArtgallery(data);
       })
       .catch(error => console.error('Error fetching data:', error));
   }, []);
 
   return (
     <div className='ArtGallery'>
-      <h2>User List</h2>
+      <h2>Art Gallery List</h2>
       <div className='user-list'>
-        {users.map(user => (
-          <div key={user.id} className='user-card'>
-            <p>ID: {user.id}</p>
-            <p>Full Name: {user.firstName} {user.lastName}</p>
-            <p>Email: {user.email}</p>
-            <p>Role: {user.role}</p>
-            <p>Description: {user.description}</p>
+        {Artgalleries.map(ArtG => (
+          <div key={ArtG.id} className='user-card'>
+            {Object.keys(ArtG).map(key => (
+              <p key={key}>{key}: {ArtG[key]}</p>
+            ))}
           </div>
         ))}
       </div>

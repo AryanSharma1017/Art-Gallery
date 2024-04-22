@@ -23,6 +23,8 @@ builder.Services.AddSingleton<UserService>();
 builder.Services.AddSingleton<ArtistService>();
 builder.Services.AddSingleton<ExhibitionService>();
 builder.Services.AddSingleton<ArtifactService>();
+builder.Services.AddSingleton<ArtGalleryService>();
+builder.Services.AddSingleton<ArtTypeService>();
 
 var app = builder.Build();
 

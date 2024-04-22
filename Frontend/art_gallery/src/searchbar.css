@@ -21,6 +21,10 @@
     font-family:serif;
 }
 
+.SearchBar a{
+    text-decoration: none;
+}
+
 .SearchBar h3
 {
     color: white;
@@ -48,6 +52,7 @@
     color: rgb(233, 232, 232); 
     transition: all 0.3s ease; 
     font-size: 20px;
+    padding: 10px;
 }
 
 .options a:hover {
