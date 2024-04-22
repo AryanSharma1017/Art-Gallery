@@ -55,7 +55,7 @@ const Home = () => {
             <h1 >{text}</h1>
             <div className='buttons'>
                 <Link to="/post"><button>POST</button></Link>
-                <button>UPDATE</button>
+                <Link to="/update"><button>UPDATE</button></Link>
                 <button>DELETE</button>
             </div>
 

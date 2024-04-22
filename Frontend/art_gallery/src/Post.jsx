@@ -46,7 +46,6 @@ const Post = () => {
       });
       if (response.ok) {
         console.log(`${selectedOption} created successfully`);
-        // Optionally, redirect or show a success message
       } else {
         console.error(`Failed to create ${selectedOption}`);
       }

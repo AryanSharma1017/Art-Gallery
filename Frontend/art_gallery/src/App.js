@@ -10,6 +10,7 @@ import Artist from './Artist';
 import ArtTypes from './ArtTypes';
 import Artifacts from './Artifacts';
 import Exhibition from './Exhibitions';
+import Update from './Update';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/artifacts" element={<Artifacts/>} />
         <Route path="/arttypes" element={<ArtTypes/>} />
         <Route path="/Exhibition" element={<Exhibition/>} />
+        <Route path="/update" element={<Update/>} />
       </Routes>
     </div>
   );
