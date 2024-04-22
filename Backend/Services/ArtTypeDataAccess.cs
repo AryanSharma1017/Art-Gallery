@@ -38,17 +38,33 @@ public class ArtTypeService {
     
     public async Task CreateArtType(ArtTypes artTypeToAdd)
     {
+        artTypeToAdd.Id = GetNextArtTypeId();
         await _artTypeCollection.InsertOneAsync(artTypeToAdd);
         return;
     }
 
     public async Task<bool> UpdateArtType(int id, ArtTypes artTypeToUpdate)
     {
-        var result = await _artTypeCollection.ReplaceOneAsync(at => at.Id == id, artTypeToUpdate);
+        var ExistingArtType = await _artTypeCollection.Find(a => a.Id == id).FirstOrDefaultAsync();
+
+        if (ExistingArtType == null)
+        {
+            return false;
+        }
+
+        ExistingArtType.Name = artTypeToUpdate.Name ?? ExistingArtType.Name;
+        ExistingArtType.Origin = artTypeToUpdate.Origin ?? ExistingArtType.Origin;
+        ExistingArtType.YearOfOrigin = artTypeToUpdate.YearOfOrigin != 0 ? artTypeToUpdate.YearOfOrigin :  ExistingArtType.YearOfOrigin;;
+        
+        var filter = Builders<ArtTypes>.Filter.Eq(a => a.Id, id);
+
+        var result = await _artTypeCollection.ReplaceOneAsync(filter, ExistingArtType);
+
         return result.IsAcknowledged && result.ModifiedCount > 0;
     }
 
     public async Task<bool> DeleteArtType(int id) {
+
         var result = await _artTypeCollection.DeleteOneAsync(at => at.Id == id);
         return result.IsAcknowledged && result.DeletedCount > 0;
     }

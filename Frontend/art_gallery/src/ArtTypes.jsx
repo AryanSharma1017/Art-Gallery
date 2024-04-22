@@ -5,7 +5,7 @@ const ArtTypes = () => {
   const [arttypes, setArttypes] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5033/api/ArtTypes')
+    fetch('http://localhost:5033/api/ArtType')
       .then(response => {
         if (!response.ok) {
           throw new Error('Failed to fetch data');
