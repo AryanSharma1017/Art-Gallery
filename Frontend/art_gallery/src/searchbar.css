@@ -93,10 +93,11 @@
     border-color: whitesmoke;
     border: 2px;
     background-color: whitesmoke; 
-   
     border-radius: 23px;
     transition: background 0.3s;
+    text-wrap:wrap;
 }
+
 
 
 .Post h2

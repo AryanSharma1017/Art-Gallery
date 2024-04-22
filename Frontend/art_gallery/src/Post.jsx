@@ -10,7 +10,9 @@ const Post = () => {
     email: '',
     passwordHash: '',
     role: '',
-    description: ''
+    description: '',
+    numberofartifacts: '',
+    ongoingExhibition: ''
   });
 
   const handleOptionChange = (option) => {
@@ -22,7 +24,9 @@ const Post = () => {
       email: '',
       passwordHash: '',
       role: '',
-      description: ''
+      description: '',
+      numberofartifacts: '',
+      ongoingExhibition: ''
     });
   };
 
@@ -73,7 +77,7 @@ const Post = () => {
             </div>
             <div className='form-group'>
               <label htmlFor='ongoingExhibition'>Ongoing Exhibition:</label>
-              <input type='checkbox' id='ongoingExhibition' name='ongoingExhibition' checked={formData.ongoingExhibition} onChange={handleChange} />
+              <input type='text' id='ongoingExhibition' name='ongoingExhibition' value={formData.ongoingExhibition} onChange={handleChange} />
             </div>
             <div className='form-group'>
               <label htmlFor='exhibitionId'>Exhibition ID:</label>
@@ -179,41 +183,36 @@ const Post = () => {
   
           );
 
-      case 'User':
-        return(
-          <>
-            <div className='form-group'>
-              <label htmlFor='id'>ID </label>
-              <input type='text' id='id' name='id' value={formData.id} onChange={handleChange} />
-            </div>
-            <div className='form-group'>
-              <label htmlFor='firstName'>First Name </label>
-              <input type='text' id='firstName' name='firstName' value={formData.firstName} onChange={handleChange} />
-            </div>
-            <div className='form-group'>
-              <label htmlFor='lastName'>Last Name </label>
-              <input type='text' id='lastName' name='lastName' value={formData.lastName} onChange={handleChange} />
-            </div>
-            <div className='form-group'>
-              <label htmlFor='email'>Email </label>
-              <input type='email' id='email' name='email' value={formData.email} onChange={handleChange} />
-            </div>
-            <div className='form-group'>
-              <label htmlFor='passwordHash'>Password </label>
-              <input type='password' id='passwordHash' name='passwordHash' value={formData.passwordHash} onChange={handleChange} />
-            </div>
-            <div className='form-group'>
-              <label htmlFor='role'>Role </label>
-              <input type='text' id='role' name='role' value={formData.role} onChange={handleChange} />
-            </div>
-            <div className='form-group'>
-              <label htmlFor='description'>Description </label>
-              <textarea id='description' name='description' value={formData.description} onChange={handleChange}></textarea>
-            </div>
-          </>
+          case 'User':
+            return (
+              <>
+                <div className='form-group'>
+                  <label htmlFor='firstName'>First Name:</label>
+                  <input type='text' id='firstName' name='firstName' value={formData.firstName} onChange={handleChange} />
+                </div>
+                <div className='form-group'>
+                  <label htmlFor='lastName'>Last Name:</label>
+                  <input type='text' id='lastName' name='lastName' value={formData.lastName} onChange={handleChange} />
+                </div>
+                <div className='form-group'>
+                  <label htmlFor='email'>Email:</label>
+                  <input type='email' id='email' name='email' value={formData.email} onChange={handleChange} />
+                </div>
+                <div className='form-group'>
+                  <label htmlFor='passwordHash'>Password:</label>
+                  <input type='password' id='passwordHash' name='passwordHash' value={formData.passwordHash} onChange={handleChange} />
+                </div>
+                <div className='form-group'>
+                  <label htmlFor='role'>Role:</label>
+                  <input type='text' id='role' name='role' value={formData.role} onChange={handleChange} />
+                </div>
+                <div className='form-group'>
+                  <label htmlFor='description'>Description:</label>
+                  <textarea id='description' name='description' value={formData.description} onChange={handleChange}></textarea>
+                </div>
+              </>
         )
 
-      // Add cases for other options (Artifacts, Artist, ArtTypes, Exhibitions) with respective form fields
       default:
         return null;
     }
