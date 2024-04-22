@@ -5,10 +5,10 @@ import "./searchbar.css";
 const Post = () => {
   const [selectedOption, setSelectedOption] = useState('');
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
+    first_name: '',
+    last_name: '',
     email: '',
-    passwordHash: '',
+    password_hash: '',
     role: '',
     description: ''
   });
@@ -17,10 +17,10 @@ const Post = () => {
     setSelectedOption(option);
     // Reset form data when changing option
     setFormData({
-      firstName: '',
-      lastName: '',
+      first_name: '',
+      last_name: '',
       email: '',
-      passwordHash: '',
+      password_hash: '',
       role: '',
       description: ''
     });
@@ -118,12 +118,12 @@ const Post = () => {
         return (
           <>
             <div className='form-group'>
-              <label htmlFor='firstname'>First Name:</label>
-              <input type='text' id='firstName' name='firstName' value={formData.firstName} onChange={handleChange} />
+              <label htmlFor='first_name'>First Name:</label>
+              <input type='text' id='first_name' name='first_name' value={formData.first_name} onChange={handleChange} />
             </div>
             <div className='form-group'>
-              <label htmlFor='lastname'>Last Name:</label>
-              <input type='text' id='lastName' name='lastName' value={formData.lastName} onChange={handleChange} />
+              <label htmlFor='last_name'>Last Name:</label>
+              <input type='text' id='last_name' name='last_name' value={formData.last_name} onChange={handleChange} />
             </div>
             <div className='form-group'>
               <label htmlFor='type'>Type:</label>
@@ -187,20 +187,20 @@ const Post = () => {
               <input type='text' id='id' name='id' value={formData.id} onChange={handleChange} />
             </div>
             <div className='form-group'>
-              <label htmlFor='firstName'>First Name </label>
-              <input type='text' id='firstName' name='firstName' value={formData.firstName} onChange={handleChange} />
+              <label htmlFor='first_name'>First Name:</label>
+              <input type='text' id='first_name' name='first_name' value={formData.first_name} onChange={handleChange} />
             </div>
             <div className='form-group'>
-              <label htmlFor='lastName'>Last Name </label>
-              <input type='text' id='lastName' name='lastName' value={formData.lastName} onChange={handleChange} />
+              <label htmlFor='last_name'>Last Name:</label>
+              <input type='text' id='last_name' name='last_name' value={formData.last_name} onChange={handleChange} />
             </div>
             <div className='form-group'>
               <label htmlFor='email'>Email </label>
               <input type='email' id='email' name='email' value={formData.email} onChange={handleChange} />
             </div>
             <div className='form-group'>
-              <label htmlFor='passwordHash'>Password </label>
-              <input type='password' id='passwordHash' name='passwordHash' value={formData.passwordHash} onChange={handleChange} />
+              <label htmlFor='password_hash'>Password </label>
+              <input type='password' id='password_hash' name='password_hash' value={formData.password_hash} onChange={handleChange} />
             </div>
             <div className='form-group'>
               <label htmlFor='role'>Role </label>
