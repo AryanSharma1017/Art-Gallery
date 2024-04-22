@@ -191,20 +191,20 @@ const Post = () => {
               <input type='text' id='id' name='id' value={formData.id} onChange={handleChange} />
             </div>
             <div className='form-group'>
-              <label htmlFor='firstName'>First Name </label>
-              <input type='text' id='firstName' name='firstName' value={formData.first_name} onChange={handleChange} />
+              <label htmlFor='first_name'>First Name </label>
+              <input type='text' id='first_name' name='first_name' value={formData.first_name} onChange={handleChange} />
             </div>
             <div className='form-group'>
-              <label htmlFor='lastName'>Last Name </label>
-              <input type='text' id='lastName' name='lastName' value={formData.last_name} onChange={handleChange} />
+              <label htmlFor='last_name'>Last Name </label>
+              <input type='text' id='last_name' name='last_name' value={formData.last_name} onChange={handleChange} />
             </div>
             <div className='form-group'>
               <label htmlFor='email'>Email </label>
               <input type='email' id='email' name='email' value={formData.email} onChange={handleChange} />
             </div>
             <div className='form-group'>
-              <label htmlFor='passwordHash'>Password </label>
-              <input type='password' id='passwordHash' name='passwordHash' value={formData.password_hash} onChange={handleChange} />
+              <label htmlFor='password_hash'>Password </label>
+              <input type='password' id='password_hash' name='password_hash' value={formData.password_hash} onChange={handleChange} />
             </div>
             <div className='form-group'>
               <label htmlFor='role'>Role </label>
