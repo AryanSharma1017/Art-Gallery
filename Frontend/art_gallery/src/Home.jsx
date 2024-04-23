@@ -50,13 +50,13 @@ const Home = () => {
     }, [index]);
 
     return (
-        <div className='HomePage'>
+        <div className='Home'>
             <img src={load_images[imageIndex]} alt="aborginial art" />
             <h1 >{text}</h1>
             <div className='buttons'>
                 <Link to="/post"><button>POST</button></Link>
                 <Link to="/update"><button>UPDATE</button></Link>
-                <button>DELETE</button>
+                <Link to="/delete"><button>DELETE</button></Link>
             </div>
 
             <div className='para'>
