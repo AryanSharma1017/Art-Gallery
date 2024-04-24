@@ -5,6 +5,10 @@ using art_gallery.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Identity;
+using art_gallery.Authentication;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -45,6 +49,20 @@ builder.Services.AddSingleton<ArtifactService>();
 builder.Services.AddSingleton<ArtGalleryService>();
 builder.Services.AddSingleton<ArtTypeService>();
 
+builder.Services.AddAuthentication("BasicAuthentication").AddScheme<AuthenticationSchemeOptions,BasicAuthenticationHandler>("BasicAuthentication", default);
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminOnly", policy =>
+        policy.RequireClaim(ClaimTypes.Role, "Admin"));
+
+    options.AddPolicy("UserOnly", policy =>
+        policy.RequireClaim(ClaimTypes.Role, "Admin", "User"));
+
+    options.AddPolicy("Generic", policy =>
+        policy.RequireClaim(ClaimTypes.Role, "Admin", "User", "General"));
+});
+
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
@@ -53,6 +71,9 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+
+app.UseAuthentication();
+app.UseAuthorization();
 app.UseHttpsRedirection();
 
 app.UseCors("AllowAnyOrigin");

@@ -92,3 +92,12 @@ C:\SIT 331 (Backend Services)\Art-Gallery\Backend\obj\Debug\net8.0\refint\Backen
 C:\SIT 331 (Backend Services)\Art-Gallery\Backend\obj\Debug\net8.0\Backend.pdb
 C:\SIT 331 (Backend Services)\Art-Gallery\Backend\obj\Debug\net8.0\Backend.genruntimeconfig.cache
 C:\SIT 331 (Backend Services)\Art-Gallery\Backend\obj\Debug\net8.0\ref\Backend.dll
+C:\SIT 331 (Backend Services)\Art-Gallery\Backend\bin\Debug\net8.0\BCrypt.Net-Next.dll
+C:\SIT 331 (Backend Services)\Art-Gallery\Backend\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\SIT 331 (Backend Services)\Art-Gallery\Backend\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\SIT 331 (Backend Services)\Art-Gallery\Backend\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\SIT 331 (Backend Services)\Art-Gallery\Backend\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\SIT 331 (Backend Services)\Art-Gallery\Backend\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\SIT 331 (Backend Services)\Art-Gallery\Backend\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\SIT 331 (Backend Services)\Art-Gallery\Backend\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\SIT 331 (Backend Services)\Art-Gallery\Backend\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll

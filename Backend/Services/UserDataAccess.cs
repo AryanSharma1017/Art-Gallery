@@ -2,6 +2,7 @@ using art_gallery.Models;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using MongoDB.Bson;
+using BCrypt.Net;
 
 namespace art_gallery.Services;
 
@@ -24,6 +25,13 @@ public class UserService {
         return await _userCollection.Find(u => u.Id == id).FirstOrDefaultAsync();
     }
 
+    public async Task<User> GetUserByEmail(string email)
+    {
+        var filter = Builders<User>.Filter.Eq(u => u.Email, email);
+        return await _userCollection.Find(filter).FirstOrDefaultAsync(); 
+    }
+
+
     private int GetNextUserId()
     {
         var currentID = _userCollection.Find(u => true).SortByDescending(u => u.Id).Limit(1).FirstOrDefault();
@@ -40,8 +48,10 @@ public class UserService {
     public async Task CreateUser(User user)
     {
         user.Id = GetNextUserId();
+        var passwordHash = BCrypt.Net.BCrypt.HashPassword(user.PasswordHash);
         user.CreatedDate = DateTime.Now;
         user.ModifiedDate = DateTime.Now;
+        user.PasswordHash = passwordHash;
         await _userCollection.InsertOneAsync(user);
         return;
     }

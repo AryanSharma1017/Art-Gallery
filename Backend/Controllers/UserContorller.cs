@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using art_gallery.Models;
 using art_gallery.Services;
 using MongoDB.Driver;
+using Microsoft.AspNetCore.Authorization;
 
 namespace art_gallery.Controllers;
 
@@ -15,7 +16,7 @@ public class UserController: ControllerBase {
         _userOptions = userOptions;
     }
 
-    [HttpGet]
+    [HttpGet(), Authorize(Policy = "AdminOnly")]
     public async Task<List<User>> Get() {
         return await _userOptions.GetAllUsers();
     }
