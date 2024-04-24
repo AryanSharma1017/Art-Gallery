@@ -12,6 +12,7 @@ import Artifacts from './Artifacts';
 import Exhibition from './Exhibitions';
 import Update from './Update';
 import Delete from './Delete';
+import Login from './Login';
 
 function App() {
   return (
