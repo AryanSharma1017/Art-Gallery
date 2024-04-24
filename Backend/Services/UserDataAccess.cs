@@ -65,18 +65,18 @@ public class UserService {
             return false;
         }
 
+        var passwordhash = BCrypt.Net.BCrypt.HashPassword(user.PasswordHash);
+
         ExistingUser.FirstName = user.FirstName ?? ExistingUser.FirstName;
         ExistingUser.LastName = user.LastName ?? ExistingUser.LastName;
         ExistingUser.Email = user.Email ?? ExistingUser.Email;
-        ExistingUser.PasswordHash = user.PasswordHash ?? ExistingUser.PasswordHash;
+        ExistingUser.PasswordHash = passwordhash ?? ExistingUser.PasswordHash;
         ExistingUser.Role = user.Role ?? ExistingUser.Role;
         ExistingUser.Description = user.Description ?? ExistingUser.Description;
-
         ExistingUser.ModifiedDate = DateTime.UtcNow;
 
         var filter = Builders<User>.Filter.Eq(u => u.Id, id);
         var result = await _userCollection.ReplaceOneAsync(filter, ExistingUser);
-        // var result = await _userCollection.ReplaceOneAsync(u => u.Id == id, user);
         return result.IsAcknowledged && result.ModifiedCount > 0;
     }
 

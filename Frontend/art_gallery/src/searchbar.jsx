@@ -14,6 +14,7 @@ const SearchBar = () => {
         <Link to="/artist">Artist</Link>
         <Link to="/arttypes">Art-Types</Link>
         <Link to="/Exhibition">Exhibition</Link>
+        <Link to="/login">Login</Link>
       </div>
     </div>
   );

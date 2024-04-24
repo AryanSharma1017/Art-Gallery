@@ -27,11 +27,11 @@ public class ArtGallery
 
     [BsonElement("exhibition_id")]
     [JsonPropertyName("exhibition_id")]
-    public int? ExhibitionId { get; set; }
+    public int ExhibitionId { get; set; }
 
     public ArtGallery() { }
 
-    public ArtGallery(int id,string name, string address, int numberOfArtifacts, string? ongoingExhibition = null, int? exhibitionId = null)
+    public ArtGallery(int id,string name, string address, int numberOfArtifacts, int exhibitionId, string? ongoingExhibition = null)
     {
         Id = id;
         Name = name;

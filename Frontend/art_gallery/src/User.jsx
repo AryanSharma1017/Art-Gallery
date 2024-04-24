@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import "./searchbar.css"
 
 const Users = () => {
   const [users, setUsers] = useState([]);
@@ -16,13 +17,13 @@ const Users = () => {
           password: localStorage.getItem('password'), 
         },
       });
+      console.log(response)
       setUsers(response.data);
     } catch (error) {
       console.error('Error fetching users:', error);
     }
-
     console.log(localStorage.getItem('email'));
-    console.log(localStorage.getItem('password'));
+    console.log(localStorage.getItem('password'))
   };
 
   return (

@@ -28,6 +28,7 @@ const Update = () => {
     start_date: '',
     end_date: ''
   });
+  const [changedFields, setChangedFields] = useState({});
 
   const handleOptionChange = (option) => {
     setSelectedOption(option);
@@ -56,6 +57,7 @@ const Update = () => {
       start_date: '',
       end_date: ''
     });
+    setChangedFields({});
   };
 
   const handleChange = (e) => {
@@ -64,17 +66,25 @@ const Update = () => {
       ...prevData,
       [name]: value
     }));
+    setChangedFields(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const payload = Object.keys(changedFields).reduce((acc, key) => {
+      acc[key] = formData[key];
+      return acc;
+    }, {});
     try {
       const response = await fetch(`http://localhost:5033/api/${selectedOption}/${formData.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(payload)
       });
       if (response.ok) {
         console.log(`${selectedOption} updated successfully`);
