@@ -1,26 +1,35 @@
 import React, { useState, useEffect } from 'react';
-import "./searchbar.css";
+import axios from 'axios';
 
 const Users = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5033/api/User')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Failed to fetch data');
-        }
-        return response.json();
-      })
-      .then(data => {
-        setUsers(data);
-      })
-      .catch(error => console.error('Error fetching data:', error));
+    fetchUsers();
   }, []);
 
+  const fetchUsers = async () => {
+    try {
+      const response = await axios.get('http://localhost:5033/api/User', {
+        auth: {
+          username: localStorage.getItem('email'), 
+          password: localStorage.getItem('password'), 
+        },
+      });
+      setUsers(response.data);
+    } catch (error) {
+      console.error('Error fetching users:', error);
+    }
+
+    console.log(localStorage.getItem('email'));
+    console.log(localStorage.getItem('password'));
+  };
+
   return (
-    <div className='ArtGallery'>
-      <h2>User List</h2>
+    <div>
+      <div className="Post">
+        <h1>User List</h1>
+      </div>
       <div className='user-list'>
         {users.map(user => (
           <div key={user.id} className='user-card'>
