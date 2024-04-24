@@ -71,9 +71,9 @@ return (
                 >
                     <option value="">Select</option>
                     <option value="ArtGallery">Art Gallery</option>
-                    <option value="Artifacts">Artifacts</option>
+                    <option value="Artifact">Artifacts</option>
                     <option value="Artist">Artist</option>
-                    <option value="ArtTypes">Art Types</option>
+                    <option value="ArtType">Art Types</option>
                     <option value="Exhibition">Exhibition</option>
                     <option value="User">User</option>
                 </select>
