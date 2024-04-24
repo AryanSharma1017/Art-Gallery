@@ -135,7 +135,7 @@ const Update = () => {
             </div>
             <div className='form-group'>
               <label htmlFor='description'>Description:</label>
-              <textarea id='description' name='description' value={formData.description} onChange={handleChange}></textarea>
+              <textarea id='description' name='description' value={formData.description} onChange={handleChange} rows='4' cols='50' ></textarea>
             </div>
             <div className='form-group'>
               <label htmlFor='type'>Type:</label>
@@ -185,7 +185,7 @@ const Update = () => {
             </div>
             <div className='form-group'>
               <label htmlFor='about'>About:</label>
-              <input type='text' id='about' name='about' value={formData.about} onChange={handleChange} />
+              <textarea id='about' name='about' value={formData.about} onChange={handleChange} rows='4' cols='50' ></textarea>
             </div>
             <div className='form-group'>
               <label htmlFor='phone_number'>Phone Number:</label>
@@ -233,7 +233,7 @@ const Update = () => {
             </div>
             <div className='form-group'>
               <label htmlFor='description'>Description:</label>
-              <input type='text' id='description' name='description' value={formData.description} onChange={handleChange} />
+              <textarea id='description' name='description' value={formData.description} onChange={handleChange} rows='4' cols='50' ></textarea>
             </div>
             <div className='form-group'>
               <label htmlFor='gallery_id'>Gallery ID:</label>
@@ -267,7 +267,7 @@ const Update = () => {
             </div>
             <div className='form-group'>
               <label htmlFor='last_name'>Last Name:</label>
-              <input type='text' id='last_name' name='last_name' value={formData.last_Name} onChange={handleChange} />
+              <input type='text' id='last_name' name='last_name' value={formData.last_name} onChange={handleChange} />
             </div>
             <div className='form-group'>
               <label htmlFor='email'>Email:</label>

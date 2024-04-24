@@ -126,8 +126,8 @@ const Post = () => {
               <input type='text' id='name' name='name' value={formData.name} onChange={handleChange} />
             </div>
             <div className='form-group'>
-              <label htmlFor='description'>Description:</label>
-              <textarea id='description' name='description' value={formData.description} onChange={handleChange}></textarea>
+                <label htmlFor='description'>Description:</label>
+                <textarea id='description' name='description' value={formData.description} onChange={handleChange} rows='4' cols='50' ></textarea>
             </div>
             <div className='form-group'>
               <label htmlFor='type'>Type:</label>
@@ -172,8 +172,8 @@ const Post = () => {
               <input type='text' id='type' name='type' value={formData.type} onChange={handleChange} />
             </div>
             <div className='form-group'>
-              <label htmlFor='about'>About:</label>
-              <input type='text' id='about' name='about' value={formData.about} onChange={handleChange} />
+                <label htmlFor='about'>About:</label>
+                <textarea id='about' name='about' value={formData.about} onChange={handleChange} rows='4' cols='50' ></textarea>
             </div>
             <div className='form-group'>
               <label htmlFor='phone_number'>Phone Number:</label>
@@ -213,7 +213,7 @@ const Post = () => {
               </div>
               <div className='form-group'>
                 <label htmlFor='description'>Description:</label>
-                <input type='text' id='description' name='description' value={formData.description} onChange={handleChange} />
+                <textarea id='description' name='description' value={formData.description} onChange={handleChange} rows='4' cols='50' ></textarea>
               </div>
               <div className='form-group'>
                 <label htmlFor='gallery_id'>Gallery ID:</label>
@@ -258,8 +258,8 @@ const Post = () => {
               <input type='text' id='role' name='role' value={formData.role} onChange={handleChange} />
             </div>
             <div className='form-group'>
-              <label htmlFor='description'>Description:</label>
-              <textarea id='description' name='description' value={formData.description} onChange={handleChange}></textarea>
+                <label htmlFor='description'>Description:</label>
+                <textarea id='description' name='description' value={formData.description} onChange={handleChange} rows='4' cols='50' ></textarea>
             </div>
           </>
         )
