@@ -38,6 +38,8 @@ public class ArtifactService {
     public async Task CreateArtifact(Artifacts artifactToAdd)
     {
         artifactToAdd.Id = GetNextArtifactId();
+        artifactToAdd.AdditionDate = DateTime.Now;
+        artifactToAdd.ModifiedDate = DateTime.Now;
         await _artifactCollection.InsertOneAsync(artifactToAdd);
         return;
     }

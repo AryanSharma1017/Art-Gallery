@@ -41,6 +41,8 @@ public class ArtistService {
     public async Task CreateArtist(Artist ArtistToAdd)
     {
         ArtistToAdd.Id = GetNextArtistId();
+        ArtistToAdd.CreatedDate = DateTime.Now;
+        ArtistToAdd.ModifiedDate = DateTime.Now;
         await _artistCollection.InsertOneAsync(ArtistToAdd);
         return;
     }
