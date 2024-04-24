@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using art_gallery.Services;
 using art_gallery.Models;
+using SCrypt;
 
 namespace art_gallery.Authentication
 {
@@ -68,8 +69,9 @@ namespace art_gallery.Authentication
                 return AuthenticateResult.Fail("Authentication is failed, check the credentials entered");
             }
 
+            var scrypt = new SCryptEncoder();
 
-            if (BCrypt.Net.BCrypt.Verify(Pass_Part, user.PasswordHash))
+            if (scrypt.Compare(Pass_Part, user.PasswordHash))
             {
                 var claims = new[]
                 {
@@ -86,7 +88,7 @@ namespace art_gallery.Authentication
                 return AuthenticateResult.Success(authTicket);
             }
 
-            else if(!BCrypt.Net.BCrypt.Verify(Pass_Part, user.PasswordHash))
+            else if(!scrypt.Compare(Pass_Part, user.PasswordHash))
             {
                 Response.StatusCode = 401;
                 return AuthenticateResult.Fail("Incorrect Password");
