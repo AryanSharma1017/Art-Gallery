@@ -107,7 +107,7 @@ const Update = () => {
               <label htmlFor='number_of_artifacts'>Number of Artifacts:</label>
               <input type='number' id='number_of_artifacts' name='number_of_artifacts' value={formData.number_of_artifacts} onChange={handleChange} />
             </div>
-            <div className='form-group'>
+            <div className='form-group selection'>
               <label htmlFor='ongoing_exhibition'>Ongoing Exhibition:</label>
               <select id='ongoing_exhibition' name='ongoing_exhibition' value={formData.ongoing_exhibition} onChange={handleChange}>
                 <option value=''>Select</option>
@@ -294,10 +294,10 @@ const Update = () => {
   };
 
   return (
-    <div className='Update'>
+    <div className='Post'>
       <h2>Update</h2>
       <div className='Poptions'>
-        <label htmlFor='options'>Select Entity to Update:</label>
+        <label htmlFor='options'>Select the Entity to Update</label>
         <select id='options' value={selectedOption} onChange={(e) => handleOptionChange(e.target.value)}>
           <option value=''>Select</option>
           <option value='ArtGallery'>ArtGallery</option>
@@ -310,9 +310,9 @@ const Update = () => {
       </div>
       {selectedOption && (
         <div className='Div1'>
-          <form onSubmit={handleSubmit} className='UpdateForm'>
+          <form onSubmit={handleSubmit} className='PostForm'>
             {renderFormFields()}
-            <div className='Div2'>
+            <div className='Div2-Update'>
               <button type='submit'>UPDATE</button>
             </div>
           </form>

@@ -98,8 +98,6 @@
     text-wrap:wrap;
 }
 
-
-
 .Post h2
 {
     background: linear-gradient(to left, rgb(196, 132, 59), rgb(255, 2, 2));
@@ -181,6 +179,30 @@
     
 }
 
+.Div2-Update button
+{
+    display: flex;
+    align-items: center;
+    border-radius: 60px;
+    border-color: orange;
+    background-color: black;
+    color: white;
+    padding: 10px 25px;
+    
+}
+
+.Div2-DELETE button
+{
+    display: flex;
+    align-items: center;
+    border-radius: 60px;
+    border-color: orange;
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    
+}
+
 .form-group
 {
     margin: 10px 0;
@@ -189,6 +211,27 @@
     align-items: center;
     justify-content: center;
     margin: 10px 0;
+}
+
+.form-group select
+{
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    /* margin-left: 100px; */
+    justify-content: center;
+    align-items: center;
+    padding: 6px 30px;
+    border-radius: 23px;
+    margin-top: 10px;
+
+}
+
+.selection
+{
+    display: flex;
+    justify-content: center;
+    margin-left: 51px;
 }
 
 .form-group input

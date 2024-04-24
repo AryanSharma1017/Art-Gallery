@@ -103,7 +103,7 @@ const Post = () => {
               <label htmlFor='number_of_artifacts'>Number of Artifacts:</label>
               <input type='number' id='number_of_artifacts' name='number_of_artifacts' value={formData.number_of_artifacts} onChange={handleChange} />
             </div>
-            <div className='form-group'>
+            <div className='form-group selection'>
               <label htmlFor='ongoing_exhibition'>Ongoing Exhibition:</label>
               <select id='ongoing_exhibition' name='ongoing_exhibition' value={formData.ongoing_exhibition} onChange={handleChange}>
                 <option value=''>Select</option>

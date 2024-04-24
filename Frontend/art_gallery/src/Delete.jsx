@@ -60,7 +60,7 @@ const renderFormFields = () => {
 };
 
 return (
-    <div className="Delete">
+    <div className="Post">
         <h2>Delete</h2>
         <div className="Poptions">
             <label htmlFor="options">Select Entity to Delete:</label>
@@ -80,9 +80,9 @@ return (
         </div>
         {selectedOption && (
         <div className="Div1">
-            <form onSubmit={handleSubmit} className="DeleteForm">
+            <form onSubmit={handleSubmit} className="PostForm">
             {renderFormFields()}
-                <div className="Div2">
+                <div className="Div2-DELETE">
                     <button type="submit">DELETE</button>
                 </div>
             </form>
