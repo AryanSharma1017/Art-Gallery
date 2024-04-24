@@ -18,11 +18,15 @@ const Update = () => {
     exhibition_id: '',
     type: '',
     price: '',
+    creation_date: '',
     gallery_id: '',
     artist_id: '',
     phone_number: '',
     age: '',
-    origin: ''
+    origin: '',
+    year_of_origin: '',
+    start_date: '',
+    end_date: ''
   });
 
   const handleOptionChange = (option) => {
@@ -42,11 +46,15 @@ const Update = () => {
       exhibition_id: '',
       type: '',
       price: '',
+      creation_date: '',
       gallery_id: '',
       artist_id: '',
       phone_number: '',
       age: '',
-      origin: ''
+      origin: '',
+      year_of_origin: '',
+      start_date: '',
+      end_date: ''
     });
   };
 
@@ -101,16 +109,20 @@ const Update = () => {
             </div>
             <div className='form-group'>
               <label htmlFor='ongoing_exhibition'>Ongoing Exhibition:</label>
-              <input type='text' id='ongoing_exhibition' name='ongoing_exhibition' value={formData.ongoing_exhibition} onChange={handleChange} />
+              <select id='ongoing_exhibition' name='ongoing_exhibition' value={formData.ongoing_exhibition} onChange={handleChange}>
+                <option value=''>Select</option>
+                <option value='true'>True</option>
+                <option value='false'>False</option>
+              </select>
             </div>
             <div className='form-group'>
               <label htmlFor='exhibition_id'>Exhibition ID:</label>
-              <input type='text' id='exhibition_id' name='exhibition_id' value={formData.exhibition_id} onChange={handleChange} />
+              <input type='number' id='exhibition_id' name='exhibition_id' value={formData.exhibition_id} onChange={handleChange} />
             </div>
           </>
         );
 
-      case 'Artifacts':
+      case 'Artifact':
         return (
           <>
             <div className='form-group'>
@@ -130,16 +142,20 @@ const Update = () => {
               <input type='text' id='type' name='type' value={formData.type} onChange={handleChange} />
             </div>
             <div className='form-group'>
-              <label htmlFor='price'>Price:</label>
-              <input type='text' id='price' name='price' value={formData.price} onChange={handleChange} />
+              <label htmlFor='Price'>Price:</label>
+              <input type='number' id='price' name='price' value={formData.price} onChange={handleChange} />
             </div>
             <div className='form-group'>
               <label htmlFor='gallery_id'>Gallery ID:</label>
-              <input type='text' id='gallery_id' name='gallery_id' value={formData.gallery_id} onChange={handleChange} />
+              <input type='number' id='gallery_id' name='gallery_id' value={formData.gallery_id} onChange={handleChange} />
             </div>
             <div className='form-group'>
               <label htmlFor='artist_id'>Artist ID:</label>
               <input type='text' id='artist_id' name='artist_id' value={formData.artist_id} onChange={handleChange} />
+            </div>
+            <div className='form-group'>
+              <label htmlFor='creation_date'>Creation Date:</label>
+              <input type='datetime-local' id='creation_date' name='creation_date' value={formData.creation_date} onChange={handleChange} />
             </div>
           </>
         );
@@ -160,16 +176,20 @@ const Update = () => {
               <input type='text' id='last_name' name='last_name' value={formData.last_name} onChange={handleChange} />
             </div>
             <div className='form-group'>
+              <label htmlFor='email'>Email:</label>
+              <input type='text' id='email' name='email' value={formData.email} onChange={handleChange} />
+            </div>
+            <div className='form-group'>
               <label htmlFor='type'>Type:</label>
               <input type='text' id='type' name='type' value={formData.type} onChange={handleChange} />
             </div>
             <div className='form-group'>
               <label htmlFor='about'>About:</label>
-              <textarea id='about' name='about' value={formData.about} onChange={handleChange}></textarea>
+              <input type='text' id='about' name='about' value={formData.about} onChange={handleChange} />
             </div>
             <div className='form-group'>
               <label htmlFor='phone_number'>Phone Number:</label>
-              <input type='text' id='phone_number' name='phone_number' value={formData.phone_number} onChange={handleChange} />
+              <input type='tel' id='phone_number' name='phone_number' value={formData.phone_number} onChange={handleChange} />
             </div>
             <div className='form-group'>
               <label htmlFor='age'>Age:</label>
@@ -178,7 +198,7 @@ const Update = () => {
           </>
         );
 
-      case 'ArtTypes':
+      case 'ArtType':
         return (
           <>
             <div className='form-group'>
@@ -191,7 +211,11 @@ const Update = () => {
             </div>
             <div className='form-group'>
               <label htmlFor='origin'>Origin:</label>
-              <input type='text' id='origin' name='origin' value={formData.origin} onChange={handleChange} />
+              <input type='text' id='origin' name='origin' value={formData.origin} placeholder ='Location of Origin' onChange={handleChange} />
+            </div>
+            <div className='form-group'>
+              <label htmlFor='year_of_origin'>Year of Origin:</label>
+              <input type='number' id='year_of_origin' name='year_of_origin' value={formData.year_of_origin} min='0' max ='2024' onChange={handleChange} />
             </div>
           </>
         );
@@ -209,17 +233,29 @@ const Update = () => {
             </div>
             <div className='form-group'>
               <label htmlFor='description'>Description:</label>
-              <textarea id='description' name='description' value={formData.description} onChange={handleChange}></textarea>
+              <input type='text' id='description' name='description' value={formData.description} onChange={handleChange} />
             </div>
             <div className='form-group'>
               <label htmlFor='gallery_id'>Gallery ID:</label>
-              <input type='text' id='gallery_id' name='gallery_id' value={formData.gallery_id} onChange={handleChange} />
+              <input type='number' id='gallery_id' name='gallery_id' value={formData.gallery_id} onChange={handleChange} />
             </div>
+            <div className='form-group'>
+                <label htmlFor='type'>Type:</label>
+                <input type='text' id='type' name='type' value={formData.type} onChange={handleChange} />
+              </div>
+              <div className='form-group'>
+                <label htmlFor='start_date'>Start Date:</label>
+                <input type='datetime-local' id='start_date' name='start_date' value={formData.start_date} onChange={handleChange} />
+              </div>
+              <div className='form-group'>
+                <label htmlFor='end_date'>End Date:</label>
+                <input type='datetime-local' id='end_date' name='end_date' value={formData.end_date} onChange={handleChange} />
+              </div>
           </>
         );
 
       case 'User':
-        return (
+        return(
           <>
             <div className='form-group'>
               <label htmlFor='id'>ID:</label>
@@ -231,14 +267,14 @@ const Update = () => {
             </div>
             <div className='form-group'>
               <label htmlFor='last_name'>Last Name:</label>
-              <input type='text' id='last_name' name='last_Name' value={formData.last_Name} onChange={handleChange} />
+              <input type='text' id='last_name' name='last_name' value={formData.last_Name} onChange={handleChange} />
             </div>
             <div className='form-group'>
               <label htmlFor='email'>Email:</label>
               <input type='email' id='email' name='email' value={formData.email} onChange={handleChange} />
             </div>
             <div className='form-group'>
-              <label htmlFor='password_hash'>Password Hash:</label>
+              <label htmlFor='password_hash'>Password:</label>
               <input type='password' id='password_hash' name='password_hash' value={formData.password_hash} onChange={handleChange} />
             </div>
             <div className='form-group'>
@@ -250,7 +286,7 @@ const Update = () => {
               <textarea id='description' name='description' value={formData.description} onChange={handleChange} />
             </div>
           </>
-        );
+        )
 
       default:
         return null;
@@ -264,10 +300,10 @@ const Update = () => {
         <label htmlFor='options'>Select Entity to Update:</label>
         <select id='options' value={selectedOption} onChange={(e) => handleOptionChange(e.target.value)}>
           <option value=''>Select</option>
-          <option value='ArtGallery'>Art Gallery</option>
-          <option value='Artifacts'>Artifacts</option>
+          <option value='ArtGallery'>ArtGallery</option>
+          <option value='Artifact'>Artifacts</option>
           <option value='Artist'>Artist</option>
-          <option value='ArtTypes'>Art Types</option>
+          <option value='ArtType'>ArtTypes</option>
           <option value='Exhibition'>Exhibition</option>
           <option value='User'>User</option>
         </select>

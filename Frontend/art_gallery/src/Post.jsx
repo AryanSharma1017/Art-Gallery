@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import "./searchbar.css";
 
-
 const Post = () => {
   const [selectedOption, setSelectedOption] = useState('');
   const [formData, setFormData] = useState({
@@ -119,7 +118,6 @@ const Post = () => {
           </>
         );
 
-
       case 'Artifact':
         return (
           <>
@@ -128,7 +126,7 @@ const Post = () => {
               <input type='text' id='name' name='name' value={formData.name} onChange={handleChange} />
             </div>
             <div className='form-group'>
-              <label htmlFor='description'>Description </label>
+              <label htmlFor='description'>Description:</label>
               <textarea id='description' name='description' value={formData.description} onChange={handleChange}></textarea>
             </div>
             <div className='form-group'>
@@ -140,7 +138,7 @@ const Post = () => {
               <input type='number' id='price' name='price' value={formData.price} onChange={handleChange} />
             </div>
             <div className='form-group'>
-              <label htmlFor='galleryID'>gallery ID:</label>
+              <label htmlFor='gallery_id'>Gallery ID:</label>
               <input type='number' id='gallery_id' name='gallery_id' value={formData.gallery_id} onChange={handleChange} />
             </div>
             <div className='form-group'>
@@ -152,7 +150,6 @@ const Post = () => {
               <input type='datetime-local' id='creation_date' name='creation_date' value={formData.creation_date} onChange={handleChange} />
             </div>
           </>
-
         );
 
       case 'Artist':
@@ -165,6 +162,10 @@ const Post = () => {
             <div className='form-group'>
               <label htmlFor='last_name'>Last Name:</label>
               <input type='text' id='last_name' name='last_name' value={formData.last_name} onChange={handleChange} />
+            </div>
+            <div className='form-group'>
+              <label htmlFor='email'>Email:</label>
+              <input type='text' id='email' name='email' value={formData.email} onChange={handleChange} />
             </div>
             <div className='form-group'>
               <label htmlFor='type'>Type:</label>
@@ -180,10 +181,9 @@ const Post = () => {
             </div>
             <div className='form-group'>
               <label htmlFor='age'>Age:</label>
-              <input type='text' id='age' name='age' value={formData.age} onChange={handleChange} />
+              <input type='number' id='age' name='age' value={formData.age} onChange={handleChange} />
             </div>
           </>
-
         );
 
       case 'ArtType':
@@ -202,7 +202,6 @@ const Post = () => {
               <input type='number' id='year_of_origin' name='year_of_origin' value={formData.year_of_origin} min='0' max ='2024' onChange={handleChange} />
             </div>
           </>
-
         );
 
         case 'Exhibition':
@@ -213,11 +212,11 @@ const Post = () => {
                 <input type='text' id='name' name='name' value={formData.name} onChange={handleChange} />
               </div>
               <div className='form-group'>
-                <label htmlFor='Description'>Description:</label>
+                <label htmlFor='description'>Description:</label>
                 <input type='text' id='description' name='description' value={formData.description} onChange={handleChange} />
               </div>
               <div className='form-group'>
-                <label htmlFor='gallery_id'>Galery ID:</label>
+                <label htmlFor='gallery_id'>Gallery ID:</label>
                 <input type='number' id='gallery_id' name='gallery_id' value={formData.gallery_id} onChange={handleChange} />
               </div>
               <div className='form-group'>
@@ -233,34 +232,33 @@ const Post = () => {
                 <input type='datetime-local' id='end_date' name='end_date' value={formData.end_date} onChange={handleChange} />
               </div>
             </>
-  
           );
 
       case 'User':
         return(
           <>
             <div className='form-group'>
-              <label htmlFor='first_name'>First Name </label>
+              <label htmlFor='first_name'>First Name:</label>
               <input type='text' id='first_name' name='first_name' value={formData.first_name} onChange={handleChange} />
             </div>
             <div className='form-group'>
-              <label htmlFor='last_name'>Last Name </label>
+              <label htmlFor='last_name'>Last Name:</label>
               <input type='text' id='last_name' name='last_name' value={formData.last_name} onChange={handleChange} />
             </div>
             <div className='form-group'>
-              <label htmlFor='email'>Email </label>
+              <label htmlFor='email'>Email:</label>
               <input type='email' id='email' name='email' value={formData.email} onChange={handleChange} />
             </div>
             <div className='form-group'>
-              <label htmlFor='password_hash'>Password </label>
+              <label htmlFor='password_hash'>Password:</label>
               <input type='password' id='password_hash' name='password_hash' value={formData.password_hash} onChange={handleChange} />
             </div>
             <div className='form-group'>
-              <label htmlFor='role'>Role </label>
+              <label htmlFor='role'>Role:</label>
               <input type='text' id='role' name='role' value={formData.role} onChange={handleChange} />
             </div>
             <div className='form-group'>
-              <label htmlFor='description'>Description </label>
+              <label htmlFor='description'>Description:</label>
               <textarea id='description' name='description' value={formData.description} onChange={handleChange}></textarea>
             </div>
           </>
