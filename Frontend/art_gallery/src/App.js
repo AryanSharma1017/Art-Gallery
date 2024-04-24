@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Import BrowserRouter
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SearchBar from './searchbar';
 import Home from './Home';
 import Users from './User';
@@ -11,6 +11,7 @@ import ArtTypes from './ArtTypes';
 import Artifacts from './Artifacts';
 import Exhibition from './Exhibitions';
 import Update from './Update';
+import Delete from './Delete';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/arttypes" element={<ArtTypes/>} />
         <Route path="/Exhibition" element={<Exhibition/>} />
         <Route path="/update" element={<Update/>} />
+        <Route path="/delete" element={<Delete/>} />
       </Routes>
     </div>
   );

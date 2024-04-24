@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import "./searchbar.css"
 
 const SearchBar = () => {
-
   return (
     <div className='SearchBar'>
       <Link to={"/"}><h2>Art-gallery</h2></Link>
@@ -15,7 +14,6 @@ const SearchBar = () => {
         <Link to="/artist">Artist</Link>
         <Link to="/arttypes">Art-Types</Link>
         <Link to="/Exhibition">Exhibition</Link>
-        {/* Add more links as needed */}
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\SIT 331 (Backend Services)\\Art-Gallery\\Backend\\Backend.csproj": {}
   },
   "projects": {
@@ -12,9 +13,22 @@
         "projectPath": "C:\\SIT 331 (Backend Services)\\Art-Gallery\\Backend\\Backend.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
         "outputPath": "C:\\SIT 331 (Backend Services)\\Art-Gallery\\Backend\\obj\\",
+=======
+    "C:\\Users\\hardi\\OneDrive\\Desktop\\art_gallery\\Art-Gallery\\Backend\\Backend.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\hardi\\OneDrive\\Desktop\\art_gallery\\Art-Gallery\\Backend\\Backend.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\hardi\\OneDrive\\Desktop\\art_gallery\\Art-Gallery\\Backend\\Backend.csproj",
+        "projectName": "Backend",
+        "projectPath": "C:\\Users\\hardi\\OneDrive\\Desktop\\art_gallery\\Art-Gallery\\Backend\\Backend.csproj",
+        "packagesPath": "C:\\Users\\hardi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hardi\\OneDrive\\Desktop\\art_gallery\\Art-Gallery\\Backend\\obj\\",
+>>>>>>> 906eb6f7fe06bf1d94c66e262daa55d2f5a6bbc6
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\hardi\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"

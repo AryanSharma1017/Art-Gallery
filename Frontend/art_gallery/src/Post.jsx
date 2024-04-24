@@ -5,28 +5,50 @@ import "./searchbar.css";
 const Post = () => {
   const [selectedOption, setSelectedOption] = useState('');
   const [formData, setFormData] = useState({
+    id: '',
     first_name: '',
     last_name: '',
     email: '',
     password_hash: '',
     role: '',
     description: '',
-    numberofartifacts: '',
-    ongoingExhibition: ''
+    name: '',
+    address: '',
+    number_of_artifacts: '',
+    ongoing_exhibition: '',
+    exhibition_id: '',
+    type: '',
+    price: '',
+    gallery_id: '',
+    artist_id: '',
+    phone_number: '',
+    age: '',
+    origin: ''
   });
 
   const handleOptionChange = (option) => {
     setSelectedOption(option);
     // Reset form data when changing option
     setFormData({
+      id: '',
       first_name: '',
       last_name: '',
       email: '',
       password_hash: '',
       role: '',
       description: '',
-      numberofartifacts: '',
-      ongoingExhibition: ''
+      name: '',
+      address: '',
+      number_of_artifacts: '',
+      ongoing_exhibition: '',
+      exhibition_id: '',
+      type: '',
+      price: '',
+      gallery_id: '',
+      artist_id: '',
+      phone_number: '',
+      age: '',
+      origin: ''
     });
   };
 
@@ -72,16 +94,16 @@ const Post = () => {
               <input type='text' id='address' name='address' value={formData.address} onChange={handleChange} />
             </div>
             <div className='form-group'>
-              <label htmlFor='numberofartifacts'>Number of Artifacts:</label>
-              <input type='number' id='numberofartifacts' name='numberofartifacts' value={formData.numberofartifacts} onChange={handleChange} />
+              <label htmlFor='number_of_artifacts'>Number of Artifacts:</label>
+              <input type='number' id='number_of_artifacts' name='number_of_artifacts' value={formData.number_of_artifacts} onChange={handleChange} />
             </div>
             <div className='form-group'>
-              <label htmlFor='ongoingExhibition'>Ongoing Exhibition:</label>
-              <input type='text' id='ongoingExhibition' name='ongoingExhibition' value={formData.ongoingExhibition} onChange={handleChange} />
+              <label htmlFor='ongoing_exhibition'>Ongoing Exhibition:</label>
+              <input type='text' id='ongoing_exhibition' name='ongoing_exhibition' value={formData.ongoing_exhibition} onChange={handleChange} />
             </div>
             <div className='form-group'>
-              <label htmlFor='exhibitionId'>Exhibition ID:</label>
-              <input type='text' id='exhibitionId' name='exhibitionId' value={formData.exhibitionId} onChange={handleChange} />
+              <label htmlFor='exhibition_id'>Exhibition ID:</label>
+              <input type='text' id='exhibition_id' name='exhibition_id' value={formData.exhibition_id} onChange={handleChange} />
             </div>
           </>
         );
@@ -95,8 +117,8 @@ const Post = () => {
               <input type='text' id='name' name='name' value={formData.name} onChange={handleChange} />
             </div>
             <div className='form-group'>
-               <label htmlFor='description'>Description </label>
-               <textarea id='description' name='description' value={formData.description} onChange={handleChange}></textarea>
+              <label htmlFor='description'>Description </label>
+              <textarea id='description' name='description' value={formData.description} onChange={handleChange}></textarea>
             </div>
             <div className='form-group'>
               <label htmlFor='type'>Type:</label>
@@ -108,11 +130,11 @@ const Post = () => {
             </div>
             <div className='form-group'>
               <label htmlFor='galleryID'>gallery ID:</label>
-              <input type='text' id='galleryId' name='galleryId' value={formData.galleryid} onChange={handleChange} />
+              <input type='text' id='gallery_id' name='gallery_id' value={formData.gallery_id} onChange={handleChange} />
             </div>
             <div className='form-group'>
-              <label htmlFor='artistId'>Artist ID:</label>
-              <input type='text' id='ArtistId' name='ArtistId' value={formData.artistId} onChange={handleChange} />
+              <label htmlFor='artist_id'>Artist ID:</label>
+              <input type='text' id='ArtistId' name='ArtistId' value={formData.artist_id} onChange={handleChange} />
             </div>
           </>
 
@@ -139,7 +161,7 @@ const Post = () => {
             </div>
             <div className='form-group'>
               <label htmlFor='phonenumber'>Phone Number:</label>
-              <input type='text' id='phonenumber' name='phonenumber' value={formData.phoneNumber} onChange={handleChange} />
+              <input type='text' id='phonenumber' name='phonenumber' value={formData.phone_number} onChange={handleChange} />
             </div>
             <div className='form-group'>
               <label htmlFor='age'>Age:</label>
@@ -176,8 +198,8 @@ const Post = () => {
                 <input type='text' id='description' name='description' value={formData.description} onChange={handleChange} />
               </div>
               <div className='form-group'>
-                <label htmlFor='galleryID'>Galery ID:</label>
-                <input type='text' id='galleryID' name='galleryID' value={formData.galleryid} onChange={handleChange} />
+                <label htmlFor='gallery_id'>Galery ID:</label>
+                <input type='text' id='gallery_id' name='gallery_id' value={formData.gallery_id} onChange={handleChange} />
               </div>
             </>
   
@@ -186,10 +208,6 @@ const Post = () => {
       case 'User':
         return(
           <>
-            <div className='form-group'>
-              <label htmlFor='id'>ID </label>
-              <input type='text' id='id' name='id' value={formData.id} onChange={handleChange} />
-            </div>
             <div className='form-group'>
               <label htmlFor='first_name'>First Name </label>
               <input type='text' id='first_name' name='first_name' value={formData.first_name} onChange={handleChange} />
