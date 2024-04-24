@@ -2,12 +2,13 @@ using System;
 using Microsoft.AspNetCore.Mvc;
 using art_gallery.Models;
 using art_gallery.Services;
+using Microsoft.AspNetCore.Authorization;
 using MongoDB.Driver;
 
 namespace art_gallery.Controllers;
 
 [Controller]
-[Route("api/Artist")]
+[Route("api/Artist"), Authorize(Policy = "AdminOnly")]
 public class ArtistController: ControllerBase {
     private readonly ArtistService _artistOptions;
     public ArtistController(ArtistService artistOptions)
@@ -20,7 +21,7 @@ public class ArtistController: ControllerBase {
         return await _artistOptions.GetAllArtists();
     }
 
-    [HttpGet("{id}")]
+    [HttpGet("{id}"), Authorize(Policy = "AdminOnly")]
     public async Task<ActionResult<Artist>> Get(int id)
     {
         var artist = await _artistOptions.GetArtist(id);
@@ -31,13 +32,13 @@ public class ArtistController: ControllerBase {
         return Ok(artist);
     }
 
-    [HttpPost]
+    [HttpPost(), Authorize(Policy = "AdminOnly")]
     public async Task<IActionResult> Post([FromBody] Artist artist) {
         await _artistOptions.CreateArtist(artist);
         return CreatedAtAction(nameof(Get), new {id = artist.Id}, artist);
     }
 
-    [HttpPut("{id}")]
+    [HttpPut("{id}"), Authorize(Policy = "AdminOnly")]
     public async Task<IActionResult> Update(int id, [FromBody] Artist ArtistToUpdate) 
     {
         if(await _artistOptions.UpdateArtist(id,ArtistToUpdate))

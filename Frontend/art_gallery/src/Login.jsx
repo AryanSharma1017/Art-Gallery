@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import "./login.css"
 
 const Login = ({ setIsAuthenticated }) => {
   const [username, setUsername] = useState('');
@@ -35,20 +36,22 @@ const Login = ({ setIsAuthenticated }) => {
   };
 
   return (
-    <div className="login">
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
-        <div>
-          <label>Username:</label>
-          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+    <div className="login" >
+        <div className='Login2'>
+            <h1>Login</h1>
+            <form onSubmit={handleLogin}>
+                <div>
+                <label>Username:</label>
+                <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+                </div>
+                <div>
+                <label>Password:</label>
+                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                </div>
+                {error && <div className="error">{error}</div>}
+                <button type="submit">Login</button>
+            </form>
         </div>
-        <div>
-          <label>Password:</label>
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        </div>
-        {error && <div className="error">{error}</div>}
-        <button type="submit">Login</button>
-      </form>
     </div>
   );
 };

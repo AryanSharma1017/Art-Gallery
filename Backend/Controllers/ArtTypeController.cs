@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using art_gallery.Models;
 using art_gallery.Services;
 using MongoDB.Driver;
+using Microsoft.AspNetCore.Authorization;
 
 namespace art_gallery.Controllers;
 
@@ -17,14 +18,14 @@ public class ArtTypesController : ControllerBase
         _artTypeOptions = artTypeOptions;
     }
 
-    [HttpGet]
+    [HttpGet(), Authorize(Policy = "AdminOnly")]
     public async Task<ActionResult<List<ArtTypes>>> Get()
     {
         var artTypes = await _artTypeOptions.GetAllArtTypes();
         return Ok(artTypes);
     }
 
-    [HttpGet("{id}")]
+    [HttpGet("{id}"), Authorize(Policy = "AdminOnly")]
     public async Task<ActionResult<ArtTypes>> Get(int id)
     {
         var artType = await _artTypeOptions.GetArtType(id);
@@ -35,14 +36,14 @@ public class ArtTypesController : ControllerBase
         return Ok(artType);
     }
 
-    [HttpPost]
+    [HttpPost(), Authorize(Policy = "AdminOnly")]
     public async Task<IActionResult> Post([FromBody] ArtTypes artType)
     {
         await _artTypeOptions.CreateArtType(artType);
         return CreatedAtAction(nameof(Get), new { id = artType.Id }, artType);
     }
 
-    [HttpPut("{id}")]
+    [HttpPut("{id}"), Authorize(Policy = "AdminOnly")]
     public async Task<IActionResult> Update(int id, [FromBody] ArtTypes artTypeToUpdate)
     {
         if (await _artTypeOptions.UpdateArtType(id, artTypeToUpdate))

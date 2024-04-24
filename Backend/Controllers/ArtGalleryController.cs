@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using art_gallery.Models;
 using art_gallery.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace art_gallery.Controllers;
 
@@ -15,14 +16,14 @@ public class ArtGalleryController : ControllerBase
         _galleryOptions = galleryOptions;
     }
 
-    [HttpGet]
+    [HttpGet(), Authorize(Policy = "AdminOnly")]
     public async Task<ActionResult<List<ArtGallery>>> GetAll()
     {
         var galleries = await _galleryOptions.GetAllGalleries();
         return Ok(galleries);
     }
 
-    [HttpGet("{id}")]
+    [HttpGet("{id}"), Authorize(Policy = "AdminOnly")]
     public async Task<ActionResult<ArtGallery>> Get(int id)
     {
         var gallery = await _galleryOptions.GetGallery(id);
@@ -33,14 +34,14 @@ public class ArtGalleryController : ControllerBase
         return Ok(gallery);
     }
 
-    [HttpPost]
+    [HttpPost(), Authorize(Policy = "AdminOnly")]
     public async Task<IActionResult> Post([FromBody] ArtGallery gallery)
     {
         await _galleryOptions.CreateGallery(gallery);
         return CreatedAtAction(nameof(Get), new { id = gallery.Id }, gallery);
     }
 
-    [HttpPut("{id}")]
+    [HttpPut("{id}"), Authorize(Policy = "AdminOnly")]
     public async Task<IActionResult> Update(int id, [FromBody] ArtGallery galleryToUpdate)
     {
         if (await _galleryOptions.UpdateGallery(id, galleryToUpdate))

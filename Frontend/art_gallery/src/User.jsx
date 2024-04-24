@@ -29,7 +29,7 @@ const Users = () => {
   return (
     <div>
       <div className="Post">
-        <h1>User List</h1>
+        <h2>User List</h2> 
       </div>
       <div className='user-list'>
         {users.map(user => (

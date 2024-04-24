@@ -2,6 +2,7 @@ using System;
 using Microsoft.AspNetCore.Mvc;
 using art_gallery.Models;
 using art_gallery.Services;
+using Microsoft.AspNetCore.Authorization;
 using MongoDB.Driver;
 
 namespace art_gallery.Controllers;
@@ -17,14 +18,14 @@ public class ArtifactsController : ControllerBase
         _artifactOptions = artifactOptions;
     }
 
-    [HttpGet]
+    [HttpGet(), Authorize(Policy = "AdminOnly")]
     public async Task<ActionResult<List<Artifacts>>> Get()
     {
         var artifacts = await _artifactOptions.GetAllArtifacts();
         return Ok(artifacts);
     }
 
-    [HttpGet("{id}")]
+    [HttpGet("{id}"), Authorize(Policy = "AdminOnly")]
     public async Task<ActionResult<Artifacts>> Get(int id)
     {
         var artifact = await _artifactOptions.GetArtifact(id);
@@ -35,14 +36,14 @@ public class ArtifactsController : ControllerBase
         return Ok(artifact);
     }
 
-    [HttpPost]
+    [HttpPost(), Authorize(Policy = "AdminOnly")]
     public async Task<IActionResult> Post([FromBody] Artifacts artifact)
     {
         await _artifactOptions.CreateArtifact(artifact);
         return CreatedAtAction(nameof(Get), new { id = artifact.Id }, artifact);
     }
 
-    [HttpPut("{id}")]
+    [HttpPut("{id}"), Authorize(Policy = "AdminOnly")]
     public async Task<IActionResult> Update(int id, [FromBody] Artifacts artifactToUpdate)
     {
         if (await _artifactOptions.UpdateArtifact(id, artifactToUpdate))

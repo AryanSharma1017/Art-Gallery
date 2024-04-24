@@ -2,6 +2,7 @@ using System;
 using Microsoft.AspNetCore.Mvc;
 using art_gallery.Models;
 using art_gallery.Services;
+using Microsoft.AspNetCore.Authorization;
 using MongoDB.Driver;
 
 namespace art_gallery.Controllers;
@@ -15,7 +16,7 @@ public class ExhibitionController: ControllerBase {
         _exhibitionOptions = exhibitionOptions;
     }
 
-    [HttpGet]
+    [HttpGet(), Authorize(Policy = "AdminOnly") ]
     public async Task<List<Exhibition>> Get() {
         return await _exhibitionOptions.GetAllExhibitions();
     }
@@ -31,13 +32,13 @@ public class ExhibitionController: ControllerBase {
         return Ok(exhibition);
     }
 
-    [HttpPost]
+    [HttpPost(), Authorize(Policy = "AdminOnly")]
     public async Task<IActionResult> Post([FromBody] Exhibition newExhibition) {
         await _exhibitionOptions.AddExhibition(newExhibition);
         return CreatedAtAction(nameof(Get), new {id = newExhibition.Id}, newExhibition);
     }
 
-    [HttpPut("{id}")]
+    [HttpPut("{id}"), Authorize(Policy = "AdminOnly")]
     public async Task<IActionResult> Update(int id, [FromBody] Exhibition updatedExhibition) 
     {
         if(await _exhibitionOptions.UpdateExhibition(id,updatedExhibition))

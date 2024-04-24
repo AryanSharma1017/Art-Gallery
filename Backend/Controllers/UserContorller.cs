@@ -16,12 +16,12 @@ public class UserController: ControllerBase {
         _userOptions = userOptions;
     }
 
-    [HttpGet()]
+    [HttpGet(), Authorize(Policy = "AdminOnly")]
     public async Task<List<User>> Get() {
         return await _userOptions.GetAllUsers();
     }
 
-    [HttpGet("{id}")]
+    [HttpGet("{id}"), Authorize(Policy = "AdminOnly")]
     public async Task<ActionResult<User>> Get(int id)
     {
         var user = await _userOptions.GetUser(id);
@@ -32,13 +32,13 @@ public class UserController: ControllerBase {
         return Ok(user);
     }
 
-    [HttpPost]
+    [HttpPost(), Authorize(Policy = "AdminOnly")]
     public async Task<IActionResult> Post([FromBody] User user) {
         await _userOptions.CreateUser(user);
         return CreatedAtAction(nameof(Get), new {id = user.Id}, user);
     }
 
-    [HttpPut("{id}")]
+    [HttpPut("{id}"), Authorize(Policy = "AdminOnly")]
     public async Task<IActionResult> Update(int id, [FromBody] User UserToUpdate) 
     {
         if(await _userOptions.UpdateUser(id,UserToUpdate))
