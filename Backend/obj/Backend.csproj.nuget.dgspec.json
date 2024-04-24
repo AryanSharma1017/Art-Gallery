@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\SIT 331 (Backend Services)\\Art-Gallery\\backend\\Backend.csproj": {}
+    "C:\\SIT 331 (Backend Services)\\Art-Gallery\\Backend\\Backend.csproj": {}
   },
   "projects": {
-    "C:\\SIT 331 (Backend Services)\\Art-Gallery\\backend\\Backend.csproj": {
+    "C:\\SIT 331 (Backend Services)\\Art-Gallery\\Backend\\Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\SIT 331 (Backend Services)\\Art-Gallery\\backend\\Backend.csproj",
+        "projectUniqueName": "C:\\SIT 331 (Backend Services)\\Art-Gallery\\Backend\\Backend.csproj",
         "projectName": "Backend",
-        "projectPath": "C:\\SIT 331 (Backend Services)\\Art-Gallery\\backend\\Backend.csproj",
+        "projectPath": "C:\\SIT 331 (Backend Services)\\Art-Gallery\\Backend\\Backend.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\SIT 331 (Backend Services)\\Art-Gallery\\backend\\obj\\",
+        "outputPath": "C:\\SIT 331 (Backend Services)\\Art-Gallery\\Backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -43,6 +43,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.2, )"
