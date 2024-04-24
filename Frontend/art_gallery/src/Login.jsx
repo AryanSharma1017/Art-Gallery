@@ -1,26 +1,31 @@
 import React, { useState } from 'react';
-import axios from 'axios'; // Import axios for making HTTP requests
-import { redirect } from 'react-router-dom';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const Login = ({ setIsAuthenticated }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [redirectToMain, setRedirectToMain] = useState(false);
   const [error, setError] = useState('');
+  const navigate = useNavigate(); // Initialize the useNavigate hook
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       // Encode the username and password for Basic Authentication
       const credentials = btoa(`${username}:${password}`);
-      const response = await axios.get('http://localhost:5033/login', {
+      const response = await axios.get('http://localhost:5033/api/User', {
         headers: {
           'Authorization': `Basic ${credentials}`
         }
       });
+
+      localStorage.setItem('email', username);
+      localStorage.setItem('password', password);
+      console.log(credentials);
+      console.log(response);
       if (response.status === 200) {
         setIsAuthenticated(true);
-        setRedirectToMain(true);
+        navigate('/'); // Navigate to the homepage
       } else {
         setError('Authentication failed');
       }
@@ -28,10 +33,6 @@ const Login = ({ setIsAuthenticated }) => {
       setError('Authentication failed');
     }
   };
-
-  if (redirectToMain || isAuthenticated) {
-    return <redirect to="/" />;
-  }
 
   return (
     <div className="login">

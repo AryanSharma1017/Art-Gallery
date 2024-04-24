@@ -16,7 +16,7 @@ public class UserController: ControllerBase {
         _userOptions = userOptions;
     }
 
-    [HttpGet(), Authorize(Policy = "AdminOnly")]
+    [HttpGet()]
     public async Task<List<User>> Get() {
         return await _userOptions.GetAllUsers();
     }
