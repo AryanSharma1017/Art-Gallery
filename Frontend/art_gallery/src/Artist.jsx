@@ -1,22 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import "./searchbar.css"
+import axios from 'axios';
 
 const Artist = () => {
   const [Artists, setArtist] = useState([]);
 
-  useEffect(() => {
-    fetch('http://localhost:5033/api/Artist')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Failed to fetch data');
-        }
-        return response.json();
-      })
-      .then(data => {
-        setArtist(data);
-      })
-      .catch(error => console.error('Error fetching data:', error));
-  }, []);
+  useEffect(()=> {
+    fetchArist();
+  }, [])
+
+  const fetchArist = async () => {
+    try
+    {
+      const response = await axios.get('http://localhost:5033/api/Artist', {
+        auth: {
+          username: localStorage.getItem('email'),
+          password: localStorage.getItem('password'),
+        },
+      });
+      console.log(response)
+      setArtist(response.data);
+    }
+    catch(error) {
+      console.error('Error in fetching Artist:', error);
+    }
+
+    console.log(localStorage.getItem('email'));
+    console.log(localStorage.getItem('password'));
+  };
+
 
   return (
     <div className='ArtGallery'>

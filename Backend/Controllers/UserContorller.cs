@@ -32,13 +32,13 @@ public class UserController: ControllerBase {
         return Ok(user);
     }
 
-    [HttpPost(), Authorize(Policy = "AdminOnly")]
+    [HttpPost()]
     public async Task<IActionResult> Post([FromBody] User user) {
         await _userOptions.CreateUser(user);
         return CreatedAtAction(nameof(Get), new {id = user.Id}, user);
     }
 
-    [HttpPut("{id}"), Authorize(Policy = "AdminOnly")]
+    [HttpPut("{id}")]
     public async Task<IActionResult> Update(int id, [FromBody] User UserToUpdate) 
     {
         if(await _userOptions.UpdateUser(id,UserToUpdate))

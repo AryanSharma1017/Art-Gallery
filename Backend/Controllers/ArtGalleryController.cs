@@ -34,14 +34,14 @@ public class ArtGalleryController : ControllerBase
         return Ok(gallery);
     }
 
-    [HttpPost(), Authorize(Policy = "AdminOnly")]
+    [HttpPost()]
     public async Task<IActionResult> Post([FromBody] ArtGallery gallery)
     {
         await _galleryOptions.CreateGallery(gallery);
         return CreatedAtAction(nameof(Get), new { id = gallery.Id }, gallery);
     }
 
-    [HttpPut("{id}"), Authorize(Policy = "AdminOnly")]
+    [HttpPut("{id}")]
     public async Task<IActionResult> Update(int id, [FromBody] ArtGallery galleryToUpdate)
     {
         if (await _galleryOptions.UpdateGallery(id, galleryToUpdate))

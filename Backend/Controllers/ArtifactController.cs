@@ -36,14 +36,14 @@ public class ArtifactsController : ControllerBase
         return Ok(artifact);
     }
 
-    [HttpPost(), Authorize(Policy = "AdminOnly")]
+    [HttpPost()]
     public async Task<IActionResult> Post([FromBody] Artifacts artifact)
     {
         await _artifactOptions.CreateArtifact(artifact);
         return CreatedAtAction(nameof(Get), new { id = artifact.Id }, artifact);
     }
 
-    [HttpPut("{id}"), Authorize(Policy = "AdminOnly")]
+    [HttpPut("{id}")]
     public async Task<IActionResult> Update(int id, [FromBody] Artifacts artifactToUpdate)
     {
         if (await _artifactOptions.UpdateArtifact(id, artifactToUpdate))

@@ -32,13 +32,13 @@ public class ArtistController: ControllerBase {
         return Ok(artist);
     }
 
-    [HttpPost(), Authorize(Policy = "AdminOnly")]
+    [HttpPost()]
     public async Task<IActionResult> Post([FromBody] Artist artist) {
         await _artistOptions.CreateArtist(artist);
         return CreatedAtAction(nameof(Get), new {id = artist.Id}, artist);
     }
 
-    [HttpPut("{id}"), Authorize(Policy = "AdminOnly")]
+    [HttpPut("{id}")]
     public async Task<IActionResult> Update(int id, [FromBody] Artist ArtistToUpdate) 
     {
         if(await _artistOptions.UpdateArtist(id,ArtistToUpdate))

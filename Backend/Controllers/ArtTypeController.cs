@@ -36,14 +36,14 @@ public class ArtTypesController : ControllerBase
         return Ok(artType);
     }
 
-    [HttpPost(), Authorize(Policy = "AdminOnly")]
+    [HttpPost()]
     public async Task<IActionResult> Post([FromBody] ArtTypes artType)
     {
         await _artTypeOptions.CreateArtType(artType);
         return CreatedAtAction(nameof(Get), new { id = artType.Id }, artType);
     }
 
-    [HttpPut("{id}"), Authorize(Policy = "AdminOnly")]
+    [HttpPut("{id}")]
     public async Task<IActionResult> Update(int id, [FromBody] ArtTypes artTypeToUpdate)
     {
         if (await _artTypeOptions.UpdateArtType(id, artTypeToUpdate))

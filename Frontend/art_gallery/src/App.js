@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import './App.css';
 
 // Import all the necessary components
@@ -30,15 +31,15 @@ function App() {
       <Routes>
         <Route path="/" element={<Home userloggedin = {userLoggedIn}/>} />
         <Route path="/login" element={<Login userLogin = {userLogin}/>} />
-        <Route path="/user" element={<Users />} />
-        <Route path="/post" element={<Post />} />
-        <Route path="/artgallery" element={<ArtGallery />} />
-        <Route path="/artist" element={<Artist />} />
-        <Route path="/artifacts" element={<Artifacts />} />
-        <Route path="/arttypes" element={<ArtTypes />} />
-        <Route path="/exhibition" element={<Exhibition />} />
-        <Route path="/update" element={<Update />} />
-        <Route path="/delete" element={<Delete />} />
+        <Route path="/user" element={userLoggedIn ? <Users/> : <Navigate to="/login" />} />
+        <Route path="/post" element={userLoggedIn ? <Post /> : <Navigate to="/login" />} />
+        <Route path="/artgallery" element={userLoggedIn ? <ArtGallery /> : <Navigate to="/login" />} />
+        <Route path="/artist" element={userLoggedIn ? <Artist /> : <Navigate to="/login" />} />
+        <Route path="/artifacts" element={userLoggedIn ? <Artifacts /> : <Navigate to="/login" />} />
+        <Route path="/arttypes" element={userLoggedIn ? <ArtTypes /> : <Navigate to="/login" />} />
+        <Route path="/exhibition" element={userLoggedIn ? <Exhibition /> : <Navigate to="/login" />} />
+        <Route path="/update" element={userLoggedIn ? <Update /> : <Navigate to="/login" />} />
+        <Route path="/delete" element={userLoggedIn ? <Delete /> : <Navigate to="/login" />} />
       </Routes>
     </div>
   );

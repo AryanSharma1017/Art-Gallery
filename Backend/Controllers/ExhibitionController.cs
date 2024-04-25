@@ -32,13 +32,13 @@ public class ExhibitionController: ControllerBase {
         return Ok(exhibition);
     }
 
-    [HttpPost(), Authorize(Policy = "AdminOnly")]
+    [HttpPost()]
     public async Task<IActionResult> Post([FromBody] Exhibition newExhibition) {
         await _exhibitionOptions.AddExhibition(newExhibition);
         return CreatedAtAction(nameof(Get), new {id = newExhibition.Id}, newExhibition);
     }
 
-    [HttpPut("{id}"), Authorize(Policy = "AdminOnly")]
+    [HttpPut("{id}")]
     public async Task<IActionResult> Update(int id, [FromBody] Exhibition updatedExhibition) 
     {
         if(await _exhibitionOptions.UpdateExhibition(id,updatedExhibition))

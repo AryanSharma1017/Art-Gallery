@@ -1,22 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import "./searchbar.css"
+import axios from 'axios';
+
 
 const Artifacts = () => {
   const [artifact, setartifact] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5033/api/Artifact')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Failed to fetch data');
-        }
-        return response.json();
-      })
-      .then(data => {
-        setartifact(data);
-      })
-      .catch(error => console.error('Error fetching data:', error));
+    fetchArtifacts();
   }, []);
+
+  const fetchArtifacts = async () => {
+    try 
+    {
+      const response = await axios.get('http://localhost:5033/api/Artifact', {
+        auth: {
+          username: localStorage.getItem('email'),
+          password: localStorage.getItem('password'),
+        },
+      }); 
+      console.log(response)
+      setartifact(response.data);
+    }
+
+    catch(error)
+    {
+      console.error('Error in getting the artifacts', error);
+    }
+    console.log(localStorage.getItem('email'));
+    console.log(localStorage.getItem('password'));
+  };
 
   return (
     <div className='ArtGallery'>
