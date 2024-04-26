@@ -12,31 +12,15 @@ using art_gallery.Authentication;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
-    {
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            ValidateLifetime = true,
-            ValidateIssuerSigningKey = true,
-            ValidIssuer = builder.Configuration["Jwt:Issuer"],
-            ValidAudience = builder.Configuration["Jwt:Audience"],
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
-        };
-});
-
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAnyOrigin", builder =>
-    {
-        builder.AllowAnyOrigin()
+    options.AddPolicy("AllowSpecificOrigin", builder =>
+        builder.WithOrigins("http://localhost:3000", "https://662b54508fe6aa86796f39f2--aboriginalartgallery.netlify.app")
                 .AllowAnyMethod()
-                .AllowAnyHeader();
-    });
+                .AllowAnyHeader()
+                .AllowCredentials());
 });
+
 
 builder.Services.AddControllers();
 
@@ -76,7 +60,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.UseHttpsRedirection();
 
-app.UseCors("AllowAnyOrigin");
+app.UseCors("AllowSpecificOrigin");
 
 app.UseAuthorization();
 app.MapControllers();

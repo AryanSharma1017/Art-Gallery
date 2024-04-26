@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import "./login.css"
 
-const Login = ({ setIsAuthenticated }) => {
+const Login = ({ setLoginStatus }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -25,7 +25,7 @@ const Login = ({ setIsAuthenticated }) => {
       console.log(credentials);
       console.log(response);
       if (response.status === 200) {
-        setIsAuthenticated(true);
+        setLoginStatus(true);
         navigate('/'); // Navigate to the homepage
       } else {
         setError('Authentication failed');

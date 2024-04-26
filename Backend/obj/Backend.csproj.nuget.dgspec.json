@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\SIT 331 (Backend Services)\\Art-Gallery\\Backend\\Backend.csproj": {}
+    "C:\\Users\\hardi\\OneDrive\\Desktop\\art_gallery\\Art-Gallery\\Backend\\Backend.csproj": {}
   },
   "projects": {
-    "C:\\SIT 331 (Backend Services)\\Art-Gallery\\Backend\\Backend.csproj": {
+    "C:\\Users\\hardi\\OneDrive\\Desktop\\art_gallery\\Art-Gallery\\Backend\\Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\SIT 331 (Backend Services)\\Art-Gallery\\Backend\\Backend.csproj",
+        "projectUniqueName": "C:\\Users\\hardi\\OneDrive\\Desktop\\art_gallery\\Art-Gallery\\Backend\\Backend.csproj",
         "projectName": "Backend",
-        "projectPath": "C:\\SIT 331 (Backend Services)\\Art-Gallery\\Backend\\Backend.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\SIT 331 (Backend Services)\\Art-Gallery\\Backend\\obj\\",
+        "projectPath": "C:\\Users\\hardi\\OneDrive\\Desktop\\art_gallery\\Art-Gallery\\Backend\\Backend.csproj",
+        "packagesPath": "C:\\Users\\hardi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hardi\\OneDrive\\Desktop\\art_gallery\\Art-Gallery\\Backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\hardi\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -59,9 +59,9 @@
               "target": "Package",
               "version": "[2.25.0, )"
             },
-            "SCrypt": {
+            "Scrypt.Net": {
               "target": "Package",
-              "version": "[2.0.0.2, )"
+              "version": "[1.3.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

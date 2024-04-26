@@ -3,7 +3,7 @@ using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using MongoDB.Bson;
 using BCrypt.Net;
-using SCrypt;
+using Scrypt;
 
 namespace art_gallery.Services;
 
@@ -49,9 +49,8 @@ public class UserService {
     public async Task CreateUser(User user)
     {
         user.Id = GetNextUserId();
-        // var passwordHash = BCrypt.Net.BCrypt.HashPassword(user.PasswordHash);
         user.CreatedDate = DateTime.Now;
-        var scryptEncoder = new SCryptEncoder();
+        var scryptEncoder = new ScryptEncoder();
         var passwordHash = scryptEncoder.Encode(user.PasswordHash);
         user.ModifiedDate = DateTime.Now;
         user.PasswordHash = passwordHash;
@@ -68,10 +67,8 @@ public class UserService {
             return false;
         }
 
-        var scryptEncoder = new SCryptEncoder();
-        var passwordHash = scryptEncoder.Encode(user.PasswordHash);
-
-        // var passwordhash = BCrypt.Net.BCrypt.HashPassword(user.PasswordHash);
+        var scryptEncoder = new ScryptEncoder();
+        var passwordhash = scryptEncoder.Encode(user.PasswordHash);
 
         ExistingUser.FirstName = user.FirstName ?? ExistingUser.FirstName;
         ExistingUser.LastName = user.LastName ?? ExistingUser.LastName;

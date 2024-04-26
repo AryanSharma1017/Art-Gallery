@@ -355,13 +355,13 @@
           }
         }
       },
-      "SCrypt/2.0.0.2": {
+      "Scrypt.NET/1.3.0": {
         "type": "package",
         "compile": {
-          "lib/CryptSharp.SCryptSubset.dll": {}
+          "lib/netstandard1.4/Scrypt.dll": {}
         },
         "runtime": {
-          "lib/CryptSharp.SCryptSubset.dll": {}
+          "lib/netstandard1.4/Scrypt.dll": {}
         }
       },
       "SharpCompress/0.30.1": {
@@ -1235,19 +1235,17 @@
         "runtimes/win/native/mongocrypt.dll"
       ]
     },
-    "SCrypt/2.0.0.2": {
-      "sha512": "ZSDp3iPpXw4KW+e1yKQbarn1byN8aP+B0FNy0oMPC+htu6XVxqr1ezeSfG4kmRWG4VUu1RT0Zp3HzkH6inrIIw==",
+    "Scrypt.NET/1.3.0": {
+      "sha512": "vE6x8kHoVP5jDM5JjwdiFDJzlFAf+bkBUEkLdZyGDROXdNygrn+8NdFTxlE5V6FbeZ6TDAKx56RurldjinZkDQ==",
       "type": "package",
-      "path": "scrypt/2.0.0.2",
+      "path": "scrypt.net/1.3.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "lib/CryptSharp.SCryptSubset.XML",
-        "lib/CryptSharp.SCryptSubset.dll",
-        "lib/CryptSharp.SCryptSubset.pdb",
-        "lib/CryptSharp.chm",
-        "scrypt.2.0.0.2.nupkg.sha512",
-        "scrypt.nuspec"
+        "lib/net20/Scrypt.dll",
+        "lib/netstandard1.4/Scrypt.dll",
+        "scrypt.net.1.3.0.nupkg.sha512",
+        "scrypt.net.nuspec"
       ]
     },
     "SharpCompress/0.30.1": {
@@ -1603,24 +1601,24 @@
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 8.0.4",
       "Microsoft.AspNetCore.OpenApi >= 8.0.2",
       "MongoDB.Driver >= 2.25.0",
-      "SCrypt >= 2.0.0.2",
+      "Scrypt.Net >= 1.3.0",
       "Swashbuckle.AspNetCore >= 6.4.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\HP\\.nuget\\packages\\": {}
+    "C:\\Users\\hardi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\SIT 331 (Backend Services)\\Art-Gallery\\Backend\\Backend.csproj",
+      "projectUniqueName": "C:\\Users\\hardi\\OneDrive\\Desktop\\art_gallery\\Art-Gallery\\Backend\\Backend.csproj",
       "projectName": "Backend",
-      "projectPath": "C:\\SIT 331 (Backend Services)\\Art-Gallery\\Backend\\Backend.csproj",
-      "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "C:\\SIT 331 (Backend Services)\\Art-Gallery\\Backend\\obj\\",
+      "projectPath": "C:\\Users\\hardi\\OneDrive\\Desktop\\art_gallery\\Art-Gallery\\Backend\\Backend.csproj",
+      "packagesPath": "C:\\Users\\hardi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\hardi\\OneDrive\\Desktop\\art_gallery\\Art-Gallery\\Backend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\hardi\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -1665,9 +1663,9 @@
             "target": "Package",
             "version": "[2.25.0, )"
           },
-          "SCrypt": {
+          "Scrypt.Net": {
             "target": "Package",
-            "version": "[2.0.0.2, )"
+            "version": "[1.3.0, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
@@ -1696,17 +1694,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'SCrypt 2.0.0.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
-      "libraryId": "SCrypt",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    }
-  ]
+  }
 }

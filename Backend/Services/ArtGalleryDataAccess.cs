@@ -59,7 +59,10 @@ public class ArtGalleryService
         existingGallery.Address = gallery.Address ?? existingGallery.Address;
         existingGallery.NumberOfArtifacts = gallery.NumberOfArtifacts != 0 ? gallery.NumberOfArtifacts :  existingGallery.NumberOfArtifacts;
         existingGallery.OngoingExhibition = gallery.OngoingExhibition ?? existingGallery.OngoingExhibition;
-        existingGallery.ExhibitionId = gallery.ExhibitionId != 0 ? gallery.ExhibitionId :  existingGallery.ExhibitionId;
+        if(existingGallery.OngoingExhibition == "true")
+            existingGallery.ExhibitionId = gallery.ExhibitionId != 0 ? gallery.ExhibitionId :  existingGallery.ExhibitionId;
+        else
+            existingGallery.ExhibitionId = -1;
 
         var filter = Builders<ArtGallery>.Filter.Eq(g => g.Id, id);
 

@@ -251,3 +251,9 @@
     width: 200px;
     height: 20px;
 }
+
+.SearchBar button{
+    border-radius: 23px;
+    padding: 10px 30px;
+    margin-left: 200px;
+}

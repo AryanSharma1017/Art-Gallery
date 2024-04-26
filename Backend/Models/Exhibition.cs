@@ -37,10 +37,8 @@ public class Exhibition
     [JsonPropertyName("gallery_id")]
     public int GalleryId { get; set; }
 
-    // Default constructor
     public Exhibition() { }
 
-    // Constructor with parameters
     public Exhibition(string name, string? description, string type, DateTime startDate, DateTime endDate, int galleryId)
     {
         Name = name;

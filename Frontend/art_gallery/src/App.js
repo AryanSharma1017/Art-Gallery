@@ -1,10 +1,8 @@
 import React from 'react';
 import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom';
-import { Navigate } from 'react-router-dom';
 import './App.css';
 
-// Import all the necessary components
 import SearchBar from './searchbar';
 import Home from './Home';
 import Users from './User';
@@ -20,26 +18,28 @@ import Login from './Login';
 
 function App() {
 
-  const [userLoggedIn, setLoginStatus] = useState(false);
+  const [isLoggedIn, setLoginStatus] = useState(false);
 
-  const userLogin = () => setLoginStatus(true);
-  const userLogout = () => setLoginStatus(false);
+  const logout = () => {
+    setLoginStatus(false);
+    localStorage.removeItem('email');
+    localStorage.removeItem('password');
+  };
 
   return (
     <div className="App">
-      <SearchBar /> 
+      <SearchBar isLoggedIn={isLoggedIn} logout={logout} />
       <Routes>
-        <Route path="/" element={<Home userloggedin = {userLoggedIn}/>} />
-        <Route path="/login" element={<Login userLogin = {userLogin}/>} />
-        <Route path="/user" element={userLoggedIn ? <Users/> : <Navigate to="/login" />} />
-        <Route path="/post" element={userLoggedIn ? <Post /> : <Navigate to="/login" />} />
-        <Route path="/artgallery" element={userLoggedIn ? <ArtGallery /> : <Navigate to="/login" />} />
-        <Route path="/artist" element={userLoggedIn ? <Artist /> : <Navigate to="/login" />} />
-        <Route path="/artifacts" element={userLoggedIn ? <Artifacts /> : <Navigate to="/login" />} />
-        <Route path="/arttypes" element={userLoggedIn ? <ArtTypes /> : <Navigate to="/login" />} />
-        <Route path="/exhibition" element={userLoggedIn ? <Exhibition /> : <Navigate to="/login" />} />
-        <Route path="/update" element={userLoggedIn ? <Update /> : <Navigate to="/login" />} />
-        <Route path="/delete" element={userLoggedIn ? <Delete /> : <Navigate to="/login" />} />
+        <Route path="/" element={ <Home />} />
+        <Route path="/login" element={<Login setLoginStatus={setLoginStatus}/>} />
+        <Route path="/post" element={isLoggedIn ? <Post /> : <Login setLoginStatus={setLoginStatus} />} />
+        <Route path="/artgallery" element={isLoggedIn ? <ArtGallery /> : <Login setLoginStatus={setLoginStatus} />} />
+        <Route path="/artist" element={isLoggedIn ? <Artist /> : <Login setLoginStatus={setLoginStatus} />} />
+        <Route path="/artifacts" element={isLoggedIn ? <Artifacts /> : <Login setLoginStatus={setLoginStatus} />} />
+        <Route path="/arttypes" element={isLoggedIn ? <ArtTypes /> : <Login setLoginStatus={setLoginStatus} />} />
+        <Route path="/exhibition" element={isLoggedIn ? <Exhibition /> : <Login setLoginStatus={setLoginStatus} />} />
+        <Route path="/update" element={isLoggedIn ? <Update /> : <Login setLoginStatus={setLoginStatus} />} />
+        <Route path="/delete" element={isLoggedIn ? <Delete /> : <Login setLoginStatus={setLoginStatus} />} />
       </Routes>
     </div>
   );

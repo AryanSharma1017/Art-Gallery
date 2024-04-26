@@ -110,3 +110,4 @@ C:\Users\hardi\OneDrive\Desktop\art_gallery\Art-Gallery\Backend\bin\Debug\net8.0
 C:\Users\hardi\OneDrive\Desktop\art_gallery\Art-Gallery\Backend\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\hardi\OneDrive\Desktop\art_gallery\Art-Gallery\Backend\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\hardi\OneDrive\Desktop\art_gallery\Art-Gallery\Backend\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\hardi\OneDrive\Desktop\art_gallery\Art-Gallery\Backend\bin\Debug\net8.0\Scrypt.dll

@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using art_gallery.Services;
 using art_gallery.Models;
-using SCrypt;
+using Scrypt;
 
 namespace art_gallery.Authentication
 {
@@ -69,7 +69,7 @@ namespace art_gallery.Authentication
                 return AuthenticateResult.Fail("Authentication is failed, check the credentials entered");
             }
 
-            var scrypt = new SCryptEncoder();
+            var scrypt = new ScryptEncoder();
 
             if (scrypt.Compare(Pass_Part, user.PasswordHash))
             {
